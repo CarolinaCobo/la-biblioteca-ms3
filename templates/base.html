@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
     {% endblock %}
-    <title>La Bilbioteca</title>
+    <title>La Biblioteca</title>
 </head>
 
 <body>
@@ -35,7 +35,7 @@
                     <li><a href="Add new">Add new</a></li>
                     <li><a href="Logout">Logout</a></li>
                     <li><a href="Login">Login</a></li>
-                    <li><a href="Sign up">Sign up</a></li>
+                    <li><a href="{{ url_for('register') }}">Sign up</a></li>
 
                   </ul>
                 </div>
@@ -49,7 +49,7 @@
                 <li><a href="Add new">Add new</a></li>
                 <li><a href="Logout">Logout</a></li>
                 <li><a href="Login">Login</a></li>
-                <li><a href="Sign up">Sign up</a></li>
+                <li><a href="{{ url_for('register') }}">Sign up</a></li>
               </ul>
         </nav>
     </header>
