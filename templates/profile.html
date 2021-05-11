@@ -1,24 +1,16 @@
-<!-- {% extends "base_profile.html" %}
-{% import 'card.html' as card %}
-{% import 'pagination.html' as pagination %}
-{% import 'pagination_bottom.html' as pagination_bottom %}
+{% extends "base.html" %}
+{% block content %}
 
-{% block title %}CoffeeDB: {{ getUserData.firstName|title }}'s Profile {% if ("page" in request.args) and not (page_variable == 1) %}(Page {{ page_variable }}){% endif %}{% endblock %}
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <div class="card-panel">
+                <h3 class="center-align light-blue-text text-darken-4">
+                    {{ username }}'s Profile
+                </h3>
+            </div>
+        </div>
+    </div>
 
-{% block profile_content %}
-    {% if submission_count %}
-        <form method="GET" id="profileSubmissions">
-            {{ pagination.input(pageQuantity, "Submissions", beansCount, page_variable, offset, formName="profileSubmissions") }}
-            {{ card.input(user_submissions) }}
-            {{ pagination_bottom.input(pageQuantity, page_variable, formName="profileSubmissions") }}
-        </form>
-    {% elif session["user"] == username %}
-        <h3 class="card-title text-center mb-4">Submissions</h3>
-        <h4 class="text-center mb-4">You haven't submitted any coffee beans yet!</h4>
-        <h5 class="text-center"><a href="{{ url_for('add') }}">Click here to add some!</a></h5>
-    {% else %}
-        <h3 class="card-title text-center mb-4">Submissions</h3>
-        <h4 class="text-center mb-4">No beans have been added by {{ first_name|title }} yet!</h4>
-        <h5 class="text-center"><a href="{{ url_for('index') }}">Click here to go back to the homepage.</a></h5>
-    {% endif %}
-{% endblock %} -->
+    <!-- Add tasks by the user -->
+
+{% endblock %}
