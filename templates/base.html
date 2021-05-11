@@ -31,12 +31,15 @@
                   <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_books') }}">Home</a></li>
                     <li><a href="Browse">Browse</a></li>
-                    <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                    <li><a href="Add new">Add new</a></li>
-                    <li><a href="Logout">Logout</a></li>
-                    <li><a href="{{ url_for('login') }}">Login</a></li>
-                    <li><a href="{{ url_for('register') }}">Sign up</a></li>
-
+                    {% if session.user %}
+                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                        <li><a href="Add new">Add book</a></li>
+                        <li><a href="Add new">Manage Categories</a></li>
+                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('login') }}">Login</a></li>
+                        <li><a href="{{ url_for('register') }}">Sign up</a></li>
+                    {% endif %}
                   </ul>
                 </div>
               </nav>
@@ -45,11 +48,15 @@
                 <h4 class="center-align">La Biblioteca</h4>
                 <li><a href="{{ url_for('get_books') }}">Home</a></li>
                 <li><a href="Browse">Browse</a></li>
-                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                <li><a href="Add new">Add new</a></li>
-                <li><a href="Logout">Logout</a></li>
-                <li><a href="{{ url_for('login') }}">Login</a></li>
-                <li><a href="{{ url_for('register') }}">Sign up</a></li>
+                {% if session.user %}
+                    <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                    <li><a href="Add new">Add book</a></li>
+                    <li><a href="Add new">Manage Categories</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Sign up</a></li>
+                 {% endif %}
               </ul>
         </nav>
     </header>
