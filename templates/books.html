@@ -1,12 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-
-
-   
-      
-  
-
-
     <div class="row">
         {% for book in books %}
 
@@ -20,7 +13,9 @@
               <p>{{ book.book_description }}</p>
             </div>
             <p class="center-align">{{ book.category_name }}</p>
+            <p>{{ book.created_by }}</p>
           </div>
+         
         </div>
         {% endfor %}
        

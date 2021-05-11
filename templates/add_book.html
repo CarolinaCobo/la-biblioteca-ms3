@@ -3,16 +3,17 @@
 <h3 class="center-align">Add New Book</h3>
 
 <div class="row">
-    <form class="col s12" method="POST" action="">
+    <!-- Category section -->
+    <form class="col s12" method="POST" action="{{ url_for('add_book') }}">
         <label>Select Category</label>
-            <select id="category_name"  name="category_name" class="validate"  required>
-                <option value="" disabled selected></option>
-                {% for category in categories %}
-                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                {% endfor %}
-               
-            </select>
+        <select id="category_name" name="category_name" class="validate" required>
+            <option value="" disabled selected></option>
+            {% for category in categories %}
+            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+            {% endfor %}
+        </select>
 
+        <!-- Book name -->
         <div class="row">
             <div class="input-field col s12">
                 <input id="book_name" name="book_name" type="text" class="validate" minlength="5" maxlength="50"
@@ -20,6 +21,7 @@
                 <label for="book_name">Book name</label>
             </div>
         </div>
+        <!-- Book description -->
         <div class="row">
             <div class="input-field col s12">
                 <textarea id="book_description" name="book_description" minlength="5" maxlength="200"
@@ -27,13 +29,13 @@
                 <label for="book_description">Book Description</label>
             </div>
         </div>
+
+        <!-- Submit button -->
+        <div class="row">
+            <button class="btn-large waves-effect waves-light right" type="submit">
+                Add book<i class="material-icons right">arrow_forward</i>
+            </button>
+        </div>
     </form>
 </div>
-
-<div class="row">
-    <button class="btn-large waves-effect waves-light right" type="submit" name="action">
-        Add book<i class="material-icons right">arrow_forward</i>
-    </button>
-</div>
-
 {% endblock %}
