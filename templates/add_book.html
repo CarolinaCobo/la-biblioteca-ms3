@@ -7,14 +7,17 @@
     <form class="col s12" method="POST" action="">
       <div class="row">
         <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
-          <label for="password">Placeholder</label>
+          <input id="book_name" name="book_name" type="text" class="validate" 
+          minlength="5" maxlength="50" required>
+          <label for="book_name">Book name</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email">Placeholder</label>
+            <textarea id="book_description" name="book_description" minlength="5"
+            maxlength="300" class="materialize-textarea validate" required></textarea>
+        <label for="book_description">Book Description</label>
+    </div>
         </div>
       </div>
       <div class="row">
