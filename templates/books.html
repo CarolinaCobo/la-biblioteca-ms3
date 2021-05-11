@@ -3,39 +3,27 @@
 
 
    
- {% for book in books %}
-        {{ book.book_name }}<br>
-        {{ book.category_name }}<br>
-        {{ book.book_description }}<br>
-    {% endfor %}
+      
+  
 
 
     <div class="row">
+        {% for book in books %}
+
         <div class="col s12 m4">
           <div class="card">
             <div class="card-image">
-              <img src="images/sample-1.jpg">
-              <span class="card-title">Card Title</span>
+              <img src="https://www.incimages.com/uploaded_files/image/1920x1080/getty_655998316_2000149920009280219_363765.jpg">
+              <span class="card-title">{{ book.book_name }}</span>
             </div>
             <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
+              <p>{{ book.book_description }}</p>
             </div>
+            <p class="center-align">{{ book.category_name }}</p>
           </div>
         </div>
-
-        <div class="col s12 m4">
-            <div class="card">
-              <div class="card-image">
-                <img src="images/sample-1.jpg">
-                <span class="card-title">Card Title</span>
-              </div>
-              <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
-              </div>
-            </div>
-          </div>
+        {% endfor %}
+       
     </div>
 
       
