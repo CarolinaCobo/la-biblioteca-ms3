@@ -43,8 +43,10 @@
                     Edit book<i class="material-icons right">arrow_forward</i>
                 </button>
                 <!-- Cancel button -->
-                <button href="{{ url_for('get_books') }}"  class="btn-large waves-effect waves-light right">
+                <button class="btn-large waves-effect waves-light right">
+                    <a href="{{ url_for('get_books') }}" >
                     Cancel<i class="material-icons right">clear</i>
+                    </a>
                 </button>
             </div>
             </form>
