@@ -18,14 +18,18 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-
-
 @app.route("/")
 @app.route("/get_books")
 def get_books():
     books = mongo.db.books.find()
     return render_template("books.html", books=books)
 
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    books = mongo.db.books.find({"$text": {"$search": query}})
+    return render_template("books.html", books=books)
 
 
 @app.route("/register", methods=["GET", "POST"])
