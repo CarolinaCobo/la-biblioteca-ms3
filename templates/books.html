@@ -1,27 +1,32 @@
-{% extends "base.html" %}
-{% block content %}
-    <div class="row">
-        {% for book in books %}
+{% extends "base.html" %} {% block content %}
 
-        <div class="col s12 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="https://www.incimages.com/uploaded_files/image/1920x1080/getty_655998316_2000149920009280219_363765.jpg">
-              <span class="card-title">{{ book.book_name }}</span>
-            </div>
-            <div class="card-content">
-              <p>{{ book.book_description }}</p>
-            </div>
-            <p class="center-align">{{ book.category_name }}</p>
-            <p>{{ book.created_by }}</p>
-          </div>
-         
-        </div>
-        {% endfor %}
+<div class="row">
+  {% for book in books %}
+
+  <div class="col s12 m4">
+    <div class="card">
+      <div class="card-image">
+        <img
+          src="https://www.incimages.com/uploaded_files/image/1920x1080/getty_655998316_2000149920009280219_363765.jpg"
+        />
+        <span class="card-title">{{ book.book_name }}</span>
+      </div>
+
+      <div class="card-content">
+        <p>{{ book.book_description }}</p>
+
+        <p>{{ book.category_name }}</p>
        
+          <p>{{ book.created_by }}</p>
+        
+        <div class="class=card-action center-align">
+          <a class="waves-effect waves-light btn s3">Add </a>
+          <a class="waves-effect waves-light btn s3">Edit</a>
+        </div>
+      </div>
     </div>
-
-      
-
+  </div>
+  {% endfor %}
+</div>
 
 {% endblock %}
