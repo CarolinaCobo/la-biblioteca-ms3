@@ -7,7 +7,8 @@
     <form class="col s12" method="POST" action="{{ url_for('add_book') }}">
         <label>Select Category</label>
         <select id="category_name" name="category_name" class="validate" required>
-            <option value="" disabled selected></option>
+            <option value="" disabled selected><label for="category_name">Select Category</label></option>
+            
             {% for category in categories %}
             <option value="{{ category.category_name }}">{{ category.category_name }}</option>
             {% endfor %}
