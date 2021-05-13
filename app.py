@@ -105,7 +105,7 @@ def logout():
 def add_book():
     if request.method == "POST":
         book = {
-            "category_name": request.form.get("category_name"),
+            "genre_name": request.form.get("genre_name"),
             "book_name": request.form.get("book_name"),
             "book_description": request.form.get("book_description"),
             "book_author": request.form.get("book_author"),
@@ -118,15 +118,15 @@ def add_book():
         flash("Book Successfully Added")
         return redirect(url_for("get_books"))
 
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_book.html", categories=categories)
+    genres = mongo.db.genres.find().sort("genre_name", 1)
+    return render_template("add_book.html", genres=genres)
 
 
 @app.route("/edit_book/<book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
     if request.method == "POST":
         submit = {
-            "category_name": request.form.get("category_name"),
+            "genre_name": request.form.get("genre_name"),
             "book_name": request.form.get("book_name"),
             "book_description": request.form.get("book_description"),
             "book_author": request.form.get("book_author"),
@@ -139,8 +139,8 @@ def edit_book(book_id):
         flash("Book Successfully Updated")
 
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_book.html", book=book, categories=categories)
+    genres = mongo.db.genres.find().sort("genre_name", 1)
+    return render_template("edit_book.html", book=book, genres=genres)
 
 
 @app.route("/delete_book/<book_id>")
@@ -150,44 +150,44 @@ def delete_book(book_id):
     return redirect(url_for("get_books"))
 
 
-@app.route("/get_categories")
-def get_categories():
-    categories = list(mongo.db.categories.find().sort("category_name", 1))
-    return render_template("categories.html", categories=categories)
+@app.route("/get_genres")
+def get_genres():
+    genres = list(mongo.db.genres.find().sort("genre_name", 1))
+    return render_template("genres.html", genres=genres)
 
 
-@app.route("/add_category", methods=["GET", "POST"])
-def add_category():
+@app.route("/add_genre", methods=["GET", "POST"])
+def add_genre():
     if request.method == "POST":
-        category = {
-            "category_name": request.form.get("category_name")
+        genre = {
+            "genre_name": request.form.get("genre_name")
         }
-        mongo.db.categories.insert_one(category)
-        flash("New Category Added")
-        return redirect(url_for("get_categories"))
+        mongo.db.genres.insert_one(genre)
+        flash("New Genre Added")
+        return redirect(url_for("get_genres"))
 
-    return render_template("add_category.html")
+    return render_template("add_genre.html")
 
 
-@app.route("/edit_category/<category_id>", methods=["GET", "POST"])
-def edit_category(category_id):
+@app.route("/edit_genre/<genre_id>", methods=["GET", "POST"])
+def edit_genre(genre_id):
     if request.method == "POST":
         submit = {
-            "category_name": request.form.get("category_name")
+            "genre_name": request.form.get("genre_name")
         }
-        mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
-        flash("Category Successfully Updated")
-        return redirect(url_for("get_categories"))
+        mongo.db.genres.update({"_id": ObjectId(genre_id)}, submit)
+        flash("Genre Successfully Updated")
+        return redirect(url_for("get_genres"))
 
-    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
-    return render_template("edit_category.html", category=category)
+    genre = mongo.db.genres.find_one({"_id": ObjectId(genre_id)})
+    return render_template("edit_genre.html", genre=genre)
 
 
-@app.route("/delete_category/<category_id>")
-def delete_category(category_id):
-    mongo.db.categories.remove({"_id": ObjectId(category_id)})
-    flash("Category Successfully Deleted")
-    return redirect(url_for("get_categories"))
+@app.route("/delete_genre/<genre_id>")
+def delete_genre(genre_id):
+    mongo.db.genres.remove({"_id": ObjectId(genre_id)})
+    flash("Genre Successfully Deleted")
+    return redirect(url_for("get_genres"))
 
 
 # Favorite 

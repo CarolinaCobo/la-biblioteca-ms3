@@ -3,17 +3,17 @@
 <h3 class="center-align">Edit Book</h3>
 
 <div class="row">
-    <!-- Category section -->
+    <!-- genre section -->
     <form class="col s12" method="POST" action="{{ url_for('edit_book', book_id=book._id) }}">
-        <label>Select Category</label>
-        <select id="category_name" name="category_name" class="validate" required>
-            <option value="" disabled><label for="category_name">Select Category</label></option>
+        <label>Select Genre</label>
+        <select id="genre_name" name="genre_name" class="validate" required>
+            <option value="" disabled><label for="genre_name">Select Genre</label></option>
 
-            {% for category in categories %}
-            {% if category.category_name == book.category_name %}
-            <option value="{{ category.category_name }}" >{{ category.category_name }}</option>
+            {% for genre in genres %}
+            {% if genre.genre_name == book.genre_name %}
+            <option value="{{ genre.genre_name }}" >{{ genre.genre_name }}</option>
             {% else %}
-            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+            <option value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
             {% endif %}
             {% endfor %}
         </select>

@@ -3,14 +3,14 @@
 <h3 class="center-align">Add New Book</h3>
 
 <div class="row">
-    <!-- Category section -->
+    <!-- genre section -->
     <form class="col s12" method="POST" action="{{ url_for('add_book') }}">
-        <label>Select Category</label>
-        <select id="category_name" name="category_name" class="validate" required>
-            <option value="" disabled selected><label for="category_name">Select Category</label></option>
+        <label>Select genre</label>
+        <select id="genre_name" name="genre_name" class="validate" required>
+            <option value="" disabled selected><label for="genre_name">Select Genre</label></option>
             
-            {% for category in categories %}
-            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+            {% for genre in genres %}
+            <option value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
             {% endfor %}
         </select>
 
