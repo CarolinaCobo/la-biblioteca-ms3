@@ -1,16 +1,51 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="row">
-        <div class="col s12 m8 offset-m2">
-            <div class="card-panel">
-                <h3 class="center-align light-blue-text text-darken-4">
-                    {{ username }}'s Profile
-                </h3>
-            </div>
+<div class="row">
+    <div class="col s12 m8 offset-m2">
+        <div class="card-panel">
+            <h3 class="center-align light-blue-text text-darken-4">
+                {{ username }}'s Profile
+            </h3>
         </div>
     </div>
+</div>
 
-    <!-- Add tasks by the user -->
+ <!-- Favorite Books Section -->
+ <div class="section">
+     <h5>Favorite books</h5>
+     <div class="divider">
+     <!-- User favorite titles list -->
+     {% for fav in username.favorites %}
+     <table>
+         <tr>
+             <td width="5%"><i class="fas fa-book-open"></i></td>
+             <td width="28%">{{ fav.title }}</td>
+             <td width="5%"><i class="fas fa-user-edit"></i></td>
+             <td width="28%">{{ fav.author }}</td>
+             <td width="5%"><i class="fas fa-tag"></i></td>
+             <td width="28%">{{ fav.genre }}</td>
+         </tr>
+     </table>
+     {% endfor %}
+ </div>
+ <!-- Book Reviews Created Section -->
+ <div class="section">
+     <h5>Book Reviews Written</h5>
+     <div class="divider"></div>
+     <!-- Book Reviews list iteration -->
+     {% for user_review in user_reviews %}
+     <table>
+         <tr>
+             <td width="5%"><i class="fas fa-book-open"></i></td>
+             <td width="28%">{{ user_review.title }}</td>
+             <td width="5%"><i class="fas fa-user-edit"></i></td>
+             <td width="28%">{{ user_review.author }}</td>
+             <td width="5%"><i class="fas fa-tag"></i></td>
+             <td width="28%">{{ user_review.genre }}</td>
+         </tr>
+     </table>
+     {% endfor %}
+ </div>        
 
 {% endblock %}

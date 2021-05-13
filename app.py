@@ -108,6 +108,10 @@ def add_book():
             "category_name": request.form.get("category_name"),
             "book_name": request.form.get("book_name"),
             "book_description": request.form.get("book_description"),
+            "book_author": request.form.get("book_author"),
+            "number_pages": request.form.get("number_pages"),
+            "isbn": request.form.get("isbn"),
+            "rating": request.form.get("rating"),
             "created_by": session["user"]
         }
         mongo.db.books.insert_one(book)
@@ -125,6 +129,10 @@ def edit_book(book_id):
             "category_name": request.form.get("category_name"),
             "book_name": request.form.get("book_name"),
             "book_description": request.form.get("book_description"),
+            "book_author": request.form.get("book_author"),
+            "number_pages": request.form.get("number_pages"),
+            "isbn": request.form.get("isbn"),
+            "rating": request.form.get("rating"),
             "created_by": session["user"]
         }
         mongo.db.books.update({"_id": ObjectId(book_id)}, submit)
@@ -180,6 +188,52 @@ def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     return redirect(url_for("get_categories"))
+
+
+# Favorite 
+
+@app.route("/add_favorite/<favorite_id>")
+def add_favorite(favorite_id):
+    """
+    Allows the user to add a book review to their personal
+    favorites list
+    """
+    if session["user"]:
+        # grab the session user's details from db
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})
+
+        # grab the book review details
+        book = mongo.db.book_review.find_one(
+            {"_id": ObjectId(favorite_id)})
+
+        # Collect the favorites object data
+        favorites = {
+            "book_review_id": book["_id"],
+            "title": book["title"],
+            "author": book["author"],
+            "genre": book["genre"]
+        }
+
+        # update the user document favorites array
+        mongo.db.users.update_one(
+            {"_id": ObjectId(username["_id"])},
+            {"$push": {"favorites": favorites}})
+
+        flash(
+            "Favorite book added to your profile",
+            "teal-text text-darken-2 teal lighten-5")
+        return redirect(url_for("book_page", book_id=book["_id"]))
+
+    # If user isn't logged in display a message only
+    else:
+        flash(
+            "Sorry, you are not allowed to add favorites, please register.",
+            "red-text text-darken-2 red lighten-4")
+        return redirect(url_for("book_page", book_id=book["_id"]))
+
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
