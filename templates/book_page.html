@@ -6,7 +6,7 @@
         <div class="row container-row">
             <!-- Book Cover Image -->
             <div id="book-page-img" class="col s12 m6">
-                <!-- <img src="{{ book.image_url }}" alt="Reviewed book cover image"> -->
+                <img src="{{ book.book_image }}" alt="Book cover image">
             </div>
             <!-- Book Details Table -->
             <div class="col s12 m6">
@@ -54,11 +54,9 @@
             <div class="col s12">
                 <div class="divider"></div>
                 <div class="section">
-                    <!-- Review Edit & Delete Buttons -->
-                    {# addition of specific users to demonstrate edit and delete functionality #}
+                    <!-- Buttons (review/delete) -->
                     {% if session.user|lower == book.created_by|lower or
-                        session.user|lower == 'admin' or
-                        session.user|lower == 'ci-user' %}
+                        session.user|lower == 'admin' %}
                     <div class="book-review-btn">
                         <a href="{{ url_for('delete_book', book_id=book._id) }}"
                             aria-label="delete book review button"
