@@ -84,6 +84,7 @@ def login():
 
     return render_template("login.html")
 
+# 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
@@ -93,6 +94,8 @@ def profile(username):
     return render_template("profile.html", username=username)
 
 
+# Logout
+
 @app.route("/logout")
 def logout():
     # remove user from session cookie
@@ -100,6 +103,8 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
+
+# Add book
 
 @app.route("/add_book", methods=["GET", "POST"])
 def add_book():
@@ -121,6 +126,7 @@ def add_book():
     genres = mongo.db.genres.find().sort("genre_name", 1)
     return render_template("add_book.html", genres=genres)
 
+# Edit book (only for the ones added by the user)
 
 @app.route("/edit_book/<book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
@@ -142,6 +148,7 @@ def edit_book(book_id):
     genres = mongo.db.genres.find().sort("genre_name", 1)
     return render_template("edit_book.html", book=book, genres=genres)
 
+# Delete book (only the ones added by the user) 
 
 @app.route("/delete_book/<book_id>")
 def delete_book(book_id):
@@ -149,12 +156,14 @@ def delete_book(book_id):
     flash("Book Successfully Deleted")
     return redirect(url_for("get_books"))
 
+# Get genres
 
 @app.route("/get_genres")
 def get_genres():
     genres = list(mongo.db.genres.find().sort("genre_name", 1))
     return render_template("genres.html", genres=genres)
 
+# Add genre (only admin)
 
 @app.route("/add_genre", methods=["GET", "POST"])
 def add_genre():
@@ -168,6 +177,7 @@ def add_genre():
 
     return render_template("add_genre.html")
 
+# Edit Genre (only admin)
 
 @app.route("/edit_genre/<genre_id>", methods=["GET", "POST"])
 def edit_genre(genre_id):
@@ -182,6 +192,7 @@ def edit_genre(genre_id):
     genre = mongo.db.genres.find_one({"_id": ObjectId(genre_id)})
     return render_template("edit_genre.html", genre=genre)
 
+# Delete Genre (only adming)
 
 @app.route("/delete_genre/<genre_id>")
 def delete_genre(genre_id):
@@ -232,6 +243,16 @@ def add_favorite(favorite_id):
             "red-text text-darken-2 red lighten-4")
         return redirect(url_for("book_page", book_id=book["_id"]))
 
+
+
+@app.route("/book_page/<book_id>", methods=["GET", "POST"])
+def book_page(book_id):
+    """
+    Get the book details for the selected book and
+    render the the Book Page template.
+    """
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    return render_template("book_page.html", book=book)
 
 
 

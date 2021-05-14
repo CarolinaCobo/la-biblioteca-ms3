@@ -30,7 +30,6 @@
                   <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
                   <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_books') }}">Home</a></li>
-                    <li><a href="Browse">All books</a></li>
                     {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('add_book') }}">Add Book</a></li>
@@ -49,7 +48,6 @@
               <ul class="sidenav right" id="mobile-demo">
                 <h4 class="center-align">La Biblioteca</h4>
                 <li><a href="{{ url_for('get_books') }}">Home</a></li>
-                <li><a href="Browse">Browse</a></li>
                 {% if session.user %}
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                     <li><a href="{{ url_for('add_book') }}">Add Book</a></li>
