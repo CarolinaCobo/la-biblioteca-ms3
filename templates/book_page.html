@@ -14,43 +14,37 @@
                 <table>
                     <tbody>
                         <tr>
-                            <td><i class="teal-text fas fa-tags prefix"></i>&ensp;Genre:</td>
-                            <td>{{ book.book_genre }}</td>
+                            <td><i class="teal-text prefix"></i>&ensp;Genre:</td>
+                            <td>{{ book.genre_name }}</td>
                         </tr>
                         <tr>
-                            <td><i class="teal-text fas fa-user prefix"></i>&ensp;Author:</td>
+                            <td><i class="teal-text prefix"></i>&ensp;Author:</td>
                             <td>{{ book.book_author }}</td>
                         </tr>
                         <tr>
-                            <td><i class="teal-text fas fa-file-alt prefix"></i>&ensp;Pages:</td>
+                            <td><i class="teal-text prefix"></i>&ensp;Pages:</td>
                             <td>{{ book.number_pages }}</td>
                         </tr>
                         <tr>
-                            <td><i class="teal-text fas fa-barcode prefix"></i>&ensp;ISBN:</td>
+                            <td><i class="teal-text prefix"></i>&ensp;ISBN:</td>
                             <td>{{ book.isbn }}</td>
                         </tr>
                         <tr>
-                            <td><i class="teal-text fas fa-star-half-alt prefix"></i>&ensp;Rating:</td>
+                            <td><i class="teal-text prefix"></i>&ensp;Rating:</td>
                             <td>{{ book.rating }}</td>
                         </tr>
                         <tr>
-                            <td><i class="teal-text fas fa-user-edit prefix"></i>&ensp;Created By:</td>
+                            <td><i class="teal-text prefix"></i>&ensp;Author:</td>
                             <td>{{ book.book_author }}</td>
                         </tr>
                     </tbody>
                 </table>
                 <!-- Book Page Buttons -->
                 <div>
-                    <a href="{{ book.purchase_link }}" target="_blank" rel="noreferrer"
-                        aria-label="purchase the book button"
-                        class="waves-effect waves-light btn pill-btn right">
-                        <i aria-hidden="true"></i>
-                        <span class="sr-only">Amazon.co.uk</span>
-                    </a>
-                    <a href="{{ url_for('add_favourite', favourite_id=book._id) }}"
+                    <a href="{{ url_for('add_favorite', favorite_id=book._id) }}"
                         aria-label="save favorite book button"
                         class="waves-effect waves-light btn pill-btn red lighten-2 right">
-                        <i class="far fa-heart" aria-hidden="true"></i>
+                        <i aria-hidden="true">Favorite</i>
                     </a>
                 </div>                
             </div>
@@ -66,19 +60,19 @@
                         session.user|lower == 'admin' or
                         session.user|lower == 'ci-user' %}
                     <div class="book-review-btn">
-                        <a href="{{ url_for('delete_review', review_id=book._id) }}"
+                        <a href="{{ url_for('delete_book', book_id=book._id) }}"
                             aria-label="delete book review button"
                             class="waves-effect waves-light red btn pill-btn right">
-                            <i class="fas fa-trash-alt" aria-hidden="true"></i>
+                            <i class="fas fa-trash-alt" aria-hidden="true">Delete</i>
                         </a>
-                        <a href="{{ url_for('edit_review', review_id=book._id) }}"
+                        <a href="{{ url_for('edit_book', book_id=book._id) }}"
                             aria-label="edit book review button"
                             class="waves-effect waves-light btn pill-btn right">
-                            <i class="fas fa-edit" aria-hidden="true"></i>
+                            <i class="fas fa-edit" aria-hidden="true">Edit</i>
                         </a>
                     </div>
                     {% endif %}
-                    <h5>Book Review</h5>
+                    <h5>Comments</h5>
                     <p>
                         {{ book.review }}
                     </p>
@@ -95,7 +89,7 @@
                         <a href="{{ url_for('add_comment', comment_id=book._id) }}"
                             aria-label="add comment button"
                             class="waves-effect waves-light btn pill-btn right">
-                            <i class="fas fa-comments" aria-hidden="true"></i>
+                            <i class="fas fa-comments" aria-hidden="true">Add comment</i>
                         </a>
                     </div>
                     <h5>Comments</h5>
@@ -103,7 +97,7 @@
                     {% for comment in book.comments %}
                         <div class="divider"></div>
                         <p>
-                            Posted By: <strong>{{ comment.created_by }}</strong> on {{ comment.created_date.strftime("%d %B, %Y") }}
+                            Posted By: <strong>{{ comment.created_by }}</strong>
                         </p>
                         <p>
                             {{ comment.text }}

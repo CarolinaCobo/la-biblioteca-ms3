@@ -201,8 +201,6 @@ def delete_genre(genre_id):
     return redirect(url_for("get_genres"))
 
 
-
-
 # Open book page.
 
 @app.route("/book_page/<book_id>", methods=["GET", "POST"])
@@ -232,9 +230,9 @@ def add_favorite(favorite_id):
         # Collect the favorites object data
         favorites = {
             "book_review_id": book["_id"],
-            "title": book["title"],
-            "author": book["author"],
-            "genre": book["genre"]
+            "book_name": book["book_name"],
+            "book_author": book["book_author"],
+            "genre": book["genre_name"]
         }
 
         # update the user document favorites array
@@ -253,6 +251,36 @@ def add_favorite(favorite_id):
             "To add favorites, please register",
             "red-text text-darken-2 red lighten-4")
         return redirect(url_for("book_page", book_id=book["_id"]))
+
+
+
+@app.route("/add_comment/<comment_id>", methods=["GET", "POST"])
+def add_comment(comment_id):
+    """
+    Allows the user to add comments to a book review page.
+    Writes the comment to the specific book_review document.
+    """
+    if request.method == "POST":
+        # collect the add-comment form data and write to MongoDB
+        new_comment = {
+            "text": request.form.get("comment"),
+            "created_by": session["user"],
+        }
+
+        mongo.db.book_review.update_one(
+                    {"_id": ObjectId(comment_id)},
+                    {"$push": {"comments": new_comment}})
+
+        flash(
+            "New Comment Added",
+            "teal-text text-darken-2 teal lighten-5")
+        return redirect(url_for("book_page", book_id=comment_id))
+
+    comments = mongo.db.book_review.find_one({"_id": ObjectId(comment_id)})
+    return render_template("add-comment.html", comments=comments)
+
+
+
 
 
 if __name__ == "__main__":
