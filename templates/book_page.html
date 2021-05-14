@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container z-depth-3">
+        <!-- Book Details Section -->
+        <div class="row container-row">
+            <!-- Book Cover Image -->
+            <div id="book-page-img" class="col s12 m6">
+                <!-- <img src="{{ book.image_url }}" alt="Reviewed book cover image"> -->
+            </div>
+            <!-- Book Details Table -->
+            <div class="col s12 m6">
+                <h4>{{ book.book_name }}</h4>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><i class="teal-text fas fa-tags prefix"></i>&ensp;Genre:</td>
+                            <td>{{ book.book_genre }}</td>
+                        </tr>
+                        <tr>
+                            <td><i class="teal-text fas fa-user prefix"></i>&ensp;Author:</td>
+                            <td>{{ book.book_author }}</td>
+                        </tr>
+                        <tr>
+                            <td><i class="teal-text fas fa-file-alt prefix"></i>&ensp;Pages:</td>
+                            <td>{{ book.number_pages }}</td>
+                        </tr>
+                        <tr>
+                            <td><i class="teal-text fas fa-barcode prefix"></i>&ensp;ISBN:</td>
+                            <td>{{ book.isbn }}</td>
+                        </tr>
+                        <tr>
+                            <td><i class="teal-text fas fa-star-half-alt prefix"></i>&ensp;Rating:</td>
+                            <td>{{ book.rating }}</td>
+                        </tr>
+                        <tr>
+                            <td><i class="teal-text fas fa-user-edit prefix"></i>&ensp;Created By:</td>
+                            <td>{{ book.book_author }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- Book Page Buttons -->
+                <div>
+                    <a href="{{ book.purchase_link }}" target="_blank" rel="noreferrer"
+                        aria-label="purchase the book button"
+                        class="waves-effect waves-light btn pill-btn right">
+                        <i aria-hidden="true"></i>
+                        <span class="sr-only">Amazon.co.uk</span>
+                    </a>
+                    <a href="{{ url_for('add_favourite', favourite_id=book._id) }}"
+                        aria-label="save favorite book button"
+                        class="waves-effect waves-light btn pill-btn red lighten-2 right">
+                        <i class="far fa-heart" aria-hidden="true"></i>
+                    </a>
+                </div>                
+            </div>
+        </div>
+        <!-- Book Review Section -->
+        <div class="row container-row">
+            <div class="col s12">
+                <div class="divider"></div>
+                <div class="section">
+                    <!-- Review Edit & Delete Buttons -->
+                    {# addition of specific users to demonstrate edit and delete functionality #}
+                    {% if session.user|lower == book.created_by|lower or
+                        session.user|lower == 'admin' or
+                        session.user|lower == 'ci-user' %}
+                    <div class="book-review-btn">
+                        <a href="{{ url_for('delete_review', review_id=book._id) }}"
+                            aria-label="delete book review button"
+                            class="waves-effect waves-light red btn pill-btn right">
+                            <i class="fas fa-trash-alt" aria-hidden="true"></i>
+                        </a>
+                        <a href="{{ url_for('edit_review', review_id=book._id) }}"
+                            aria-label="edit book review button"
+                            class="waves-effect waves-light btn pill-btn right">
+                            <i class="fas fa-edit" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    {% endif %}
+                    <h5>Book Review</h5>
+                    <p>
+                        {{ book.review }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Comments Section -->
+        <div class="row container-row">
+            <div class="col s12">
+                <div class="divider"></div>
+                <div class="section">
+                    <!-- New comment button -->
+                    <div>
+                        <a href="{{ url_for('add_comment', comment_id=book._id) }}"
+                            aria-label="add comment button"
+                            class="waves-effect waves-light btn pill-btn right">
+                            <i class="fas fa-comments" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <h5>Comments</h5>
+                    <!-- Comments list iteration -->
+                    {% for comment in book.comments %}
+                        <div class="divider"></div>
+                        <p>
+                            Posted By: <strong>{{ comment.created_by }}</strong> on {{ comment.created_date.strftime("%d %B, %Y") }}
+                        </p>
+                        <p>
+                            {{ comment.text }}
+                        </p>
+                    {% endfor %}
+                </div>                
+            </div>
+        </div>
+    </div>        
+
+{% endblock %}

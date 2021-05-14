@@ -201,14 +201,25 @@ def delete_genre(genre_id):
     return redirect(url_for("get_genres"))
 
 
-# Favorite 
+
+
+# Open book page.
+
+@app.route("/book_page/<book_id>", methods=["GET", "POST"])
+def book_page(book_id):
+    """
+    Get the book details for the selected book and
+    render the the Book Page template.
+    """
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    return render_template("book_page.html", book=book)
+
+
+# Add Favorite 
 
 @app.route("/add_favorite/<favorite_id>")
 def add_favorite(favorite_id):
-    """
-    Allows the user to add a book review to their personal
-    favorites list
-    """
+    # Allows the user to add a book review for their favorite section
     if session["user"]:
         # grab the session user's details from db
         username = mongo.db.users.find_one(
@@ -236,24 +247,12 @@ def add_favorite(favorite_id):
             "teal-text text-darken-2 teal lighten-5")
         return redirect(url_for("book_page", book_id=book["_id"]))
 
-    # If user isn't logged in display a message only
+    # Display for users that are not logged in.
     else:
         flash(
-            "Sorry, you are not allowed to add favorites, please register.",
+            "To add favorites, please register",
             "red-text text-darken-2 red lighten-4")
         return redirect(url_for("book_page", book_id=book["_id"]))
-
-
-
-@app.route("/book_page/<book_id>", methods=["GET", "POST"])
-def book_page(book_id):
-    """
-    Get the book details for the selected book and
-    render the the Book Page template.
-    """
-    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-    return render_template("book_page.html", book=book)
-
 
 
 if __name__ == "__main__":
