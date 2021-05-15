@@ -77,12 +77,18 @@
 
         <!-- Rating -->
         <div class="row">
-            <div class="input-field col s12">
-                <textarea id="rating" name="rating" minlength="1" maxlength="20"
-                    class="materialize-textarea validate" required>{{ book.rating }}</textarea>
-                <label for="rating">Book rating</label>
-            </div>
+        <div class="input-field col s12">
+            <select id="rating" name="rating">
+              <option value="" disabled selected>Book rating</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
         </div>
+
 
 
             <!-- Submit button -->
