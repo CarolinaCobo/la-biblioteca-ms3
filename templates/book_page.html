@@ -41,7 +41,7 @@
                 </table>
                 <!-- Book Page Buttons -->
                 <div>
-                    <a href="{{ url_for('add_favorite', favorite_id=book._id) }}"
+                    <a href="{{ url_for('add_favorite', favorites_id=book._id) }}"
                         aria-label="save favorite book button"
                         class="waves-effect waves-light btn pill-btn red lighten-2 right">
                         <i aria-hidden="true">Favorite</i>
@@ -49,10 +49,32 @@
                 </div>                
             </div>
         </div>
-        <!-- Book Review Section -->
+
+        <!-- Comments Section -->
         <div class="row container-row">
             <div class="col s12">
                 <div class="divider"></div>
+                <div class="section">
+                    <!-- New comment button -->
+                    <div>
+                        <a href="{{ url_for('add_comment', book_id=book._id) }}"
+                            aria-label="add comment button"
+                            class="waves-effect waves-light btn pill-btn right">
+                            <i class="fas fa-comments" aria-hidden="true">Add comment</i>
+                        </a>
+                    </div>
+                    <h5>Comments</h5>
+                    <!-- Comments list iteration -->
+                    {% for comment in book.comments %}
+                        <div class="divider"></div>
+                        <p>
+                            Posted By: <strong>{{ comment.created_by }}</strong>
+                        </p>
+                        <p>
+                            {{ comment.comment }}
+                        </p>
+                    {% endfor %}
+                </div>  
                 <div class="section">
                     <!-- Buttons (review/delete) -->
                     {% if session.user|lower == book.created_by|lower or
@@ -69,39 +91,7 @@
                             <i class="fas fa-edit" aria-hidden="true">Edit</i>
                         </a>
                     </div>
-                    {% endif %}
-                    <h5>Comments</h5>
-                    <p>
-                        {{ book.review }}
-                    </p>
-                </div>
-            </div>
-        </div>
-        <!-- Comments Section -->
-        <div class="row container-row">
-            <div class="col s12">
-                <div class="divider"></div>
-                <div class="section">
-                    <!-- New comment button -->
-                    <div>
-                        <a href="{{ url_for('add_comment', comment_id=book._id) }}"
-                            aria-label="add comment button"
-                            class="waves-effect waves-light btn pill-btn right">
-                            <i class="fas fa-comments" aria-hidden="true">Add comment</i>
-                        </a>
-                    </div>
-                    <h5>Comments</h5>
-                    <!-- Comments list iteration -->
-                    {% for comment in book.comments %}
-                        <div class="divider"></div>
-                        <p>
-                            Posted By: <strong>{{ comment.created_by }}</strong>
-                        </p>
-                        <p>
-                            {{ comment.text }}
-                        </p>
-                    {% endfor %}
-                </div>                
+                    {% endif %}              
             </div>
         </div>
     </div>        

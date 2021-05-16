@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block content %}
+
+<h3 class="center-align">Add New Comment</h3>
+
+<div class="row">
+    <!-- genre section -->
+    <form class="col s12" method="POST" action="{{ url_for('add_comment', book_id=book_id) }}">
+
+        <!-- Book description -->
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="comment" name="comment" minlength="5" maxlength="500"
+                    class="materialize-textarea validate" required></textarea>
+                <label for="book_description">Add comment</label>
+            </div>
+        </div>
+
+
+        <!-- Submit button -->
+        <div class="row">
+            <button class="btn-large waves-effect waves-light right" type="submit">
+                Add Comment<i class="material-icons right">arrow_forward</i>
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

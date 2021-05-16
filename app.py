@@ -84,7 +84,8 @@ def login():
 
     return render_template("login.html")
 
-# 
+#
+
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
@@ -127,7 +128,8 @@ def add_book():
     genres = mongo.db.genres.find().sort("genre_name", 1)
     return render_template("add_book.html", genres=genres)
 
-# Edit book (only for the ones added by the user)
+# Update book details (only for the ones added by the user)
+
 
 @app.route("/edit_book/<book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
@@ -150,7 +152,8 @@ def edit_book(book_id):
     genres = mongo.db.genres.find().sort("genre_name", 1)
     return render_template("edit_book.html", book=book, genres=genres)
 
-# Delete book (only the ones added by the user) 
+# Delete book (only the ones added by the user)
+
 
 @app.route("/delete_book/<book_id>")
 def delete_book(book_id):
@@ -160,12 +163,14 @@ def delete_book(book_id):
 
 # Get genres
 
+
 @app.route("/get_genres")
 def get_genres():
     genres = list(mongo.db.genres.find().sort("genre_name", 1))
     return render_template("genres.html", genres=genres)
 
 # Add genre (only admin)
+
 
 @app.route("/add_genre", methods=["GET", "POST"])
 def add_genre():
@@ -181,6 +186,7 @@ def add_genre():
 
 # Edit Genre (only admin)
 
+
 @app.route("/edit_genre/<genre_id>", methods=["GET", "POST"])
 def edit_genre(genre_id):
     if request.method == "POST":
@@ -195,6 +201,7 @@ def edit_genre(genre_id):
     return render_template("edit_genre.html", genre=genre)
 
 # Delete Genre (only adming)
+
 
 @app.route("/delete_genre/<genre_id>")
 def delete_genre(genre_id):
@@ -215,10 +222,10 @@ def book_page(book_id):
     return render_template("book_page.html", book=book)
 
 
-# Add Favorite 
+# Add Favorite
 
-@app.route("/add_favorite/<favorite_id>")
-def add_favorite(favorite_id):
+@app.route("/add_favorite/<favorites_id>")
+def add_favorite(favorites_id):
     # Allows the user to add a book review for their favorite section
     if session["user"]:
         # grab the session user's details from db
@@ -227,20 +234,19 @@ def add_favorite(favorite_id):
 
         # grab the book review details
         book = mongo.db.book_review.find_one(
-            {"_id": ObjectId(favorite_id)})
+            {"_id": ObjectId(favorites_id)})
 
         # Collect the favorites object data
-        favorites = {
-            "book_review_id": book["_id"],
+        favorite = {
             "book_name": book["book_name"],
             "book_author": book["book_author"],
-            "genre": book["genre_name"]
+            "genre_name": book["genre_name"]
         }
 
         # update the user document favorites array
         mongo.db.users.update_one(
             {"_id": ObjectId(username["_id"])},
-            {"$push": {"favorites": favorites}})
+            {"$push": {"favorite": favorite}})
 
         flash(
             "Favorite book added to your profile",
@@ -255,33 +261,24 @@ def add_favorite(favorite_id):
         return redirect(url_for("book_page", book_id=book["_id"]))
 
 
-
-@app.route("/add_comment/<comment_id>", methods=["GET", "POST"])
-def add_comment(comment_id):
-    """
-    Allows the user to add comments to a book review page.
-    Writes the comment to the specific book_review document.
-    """
+# Comments
+@app.route("/add_comment/<book_id>", methods=["GET", "POST"])
+def add_comment(book_id):
     if request.method == "POST":
         # collect the add-comment form data and write to MongoDB
         new_comment = {
-            "text": request.form.get("comment"),
-            "created_by": session["user"],
+            "comment": request.form.get("comment"),
+            "created_by": session["user"]
         }
-
-        mongo.db.book_review.update_one(
-                    {"_id": ObjectId(comment_id)},
+        print("here")
+        mongo.db.books.update_one(
+                    {"_id": ObjectId(book_id)},
                     {"$push": {"comments": new_comment}})
 
-        flash(
-            "New Comment Added",
-            "teal-text text-darken-2 teal lighten-5")
-        return redirect(url_for("book_page", book_id=comment_id))
+        flash("New Comment Added")
+        return redirect(url_for("book_page", book_id=book_id))
 
-    comments = mongo.db.book_review.find_one({"_id": ObjectId(comment_id)})
-    return render_template("add-comment.html", comments=comments)
-
-
+    return render_template("add_comment.html", book_id=book_id)
 
 
 
