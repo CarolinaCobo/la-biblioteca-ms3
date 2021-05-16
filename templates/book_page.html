@@ -65,14 +65,28 @@
                     </div>
                     <h5>Comments</h5>
                     <!-- Comments list iteration -->
-                    {% for comment in book.comments %}
+                    {% for  comment in book.comments %}
                         <div class="divider"></div>
                         <p>
                             Posted By: <strong>{{ comment.created_by }}</strong>
                         </p>
-                        <p>
-                            {{ comment.comment }}
-                        </p>
+                        <div>
+                            <p>
+                                {{ comment.comment }}
+
+                            </p>
+                            {% if session.user|lower == comment.created_by|lower %}
+                            <div class="book-review-btn">
+                                <a href="{{ url_for('delete_comment', book_id=book._id, comment_id=comment._id) }}"
+                                    aria-label="delete book review button"
+                                    class="waves-effect waves-light red btn pill-btn right">
+                                    <i class="fas fa-trash-alt" aria-hidden="true">Delete</i>
+                                </a>
+                            
+                            </div>
+                            {% endif %} 
+                        </div>
+                        
                     {% endfor %}
                 </div>  
                 <div class="section">
@@ -85,11 +99,7 @@
                             class="waves-effect waves-light red btn pill-btn right">
                             <i class="fas fa-trash-alt" aria-hidden="true">Delete</i>
                         </a>
-                        <a href="{{ url_for('edit_book', book_id=book._id) }}"
-                            aria-label="edit book review button"
-                            class="waves-effect waves-light btn pill-btn right">
-                            <i class="fas fa-edit" aria-hidden="true">Edit</i>
-                        </a>
+                    
                     </div>
                     {% endif %}              
             </div>

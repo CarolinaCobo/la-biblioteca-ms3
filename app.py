@@ -200,9 +200,7 @@ def edit_genre(genre_id):
     genre = mongo.db.genres.find_one({"_id": ObjectId(genre_id)})
     return render_template("edit_genre.html", genre=genre)
 
-# Delete Genre (only adming)
-
-
+# Delete Genre (only admin)
 @app.route("/delete_genre/<genre_id>")
 def delete_genre(genre_id):
     mongo.db.genres.remove({"_id": ObjectId(genre_id)})
@@ -211,7 +209,6 @@ def delete_genre(genre_id):
 
 
 # Open book page.
-
 @app.route("/book_page/<book_id>", methods=["GET", "POST"])
 def book_page(book_id):
     """
@@ -223,7 +220,6 @@ def book_page(book_id):
 
 
 # Add Favorite
-
 @app.route("/add_favorite/<favorites_id>")
 def add_favorite(favorites_id):
     # Allows the user to add a book review for their favorite section
@@ -261,12 +257,13 @@ def add_favorite(favorites_id):
         return redirect(url_for("book_page", book_id=book["_id"]))
 
 
-# Comments
+# Add comment
 @app.route("/add_comment/<book_id>", methods=["GET", "POST"])
 def add_comment(book_id):
     if request.method == "POST":
         # collect the add-comment form data and write to MongoDB
         new_comment = {
+            "_id": ObjectId(),
             "comment": request.form.get("comment"),
             "created_by": session["user"]
         }
@@ -279,6 +276,18 @@ def add_comment(book_id):
         return redirect(url_for("book_page", book_id=book_id))
 
     return render_template("add_comment.html", book_id=book_id)
+
+# Delete comment
+@app.route("/delete_comment/<book_id>/<comment_id>")
+def delete_comment(book_id, comment_id):
+
+    mongo.db.books.update_one(
+                    {"_id": ObjectId(book_id)},
+                    {"$pull": {"comments": {"_id": ObjectId(comment_id)}}})
+   
+    flash("Comment Successfully Removed")
+    return redirect(url_for("book_page", book_id=book_id))
+
 
 
 
