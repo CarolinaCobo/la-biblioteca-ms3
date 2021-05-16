@@ -1,109 +1,85 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
-    <div class="container z-depth-3">
-        <!-- Book Details Section -->
-        <div class="row container-row">
-            <!-- Book Cover Image -->
-            <div id="book-page-img" class="col s12 m6">
-                <img src="{{ book.book_image }}" alt="Book cover image">
+<div class="container z-depth-3">
+    <!-- Book Details Section -->
+    <div class="row container-row">
+        <!-- Book Cover Image -->
+        <div id="book-page-img" class="col s12 m6">
+            <img src="{{ book.book_image }}" alt="Book cover image" />
+        </div>
+        <!-- Book Details Table -->
+        <div class="col s12 m6">
+            <h4>{{ book.book_name }}</h4>
+            <table>
+                <tbody>
+                    <tr>
+                        <td><i class="teal-text prefix"></i>&ensp;Genre:</td>
+                        <td>{{ book.genre_name }}</td>
+                    </tr>
+                    <tr>
+                        <td><i class="teal-text prefix"></i>&ensp;Author:</td>
+                        <td>{{ book.book_author }}</td>
+                    </tr>
+                    <tr>
+                        <td><i class="teal-text prefix"></i>&ensp;Pages:</td>
+                        <td>{{ book.number_pages }}</td>
+                    </tr>
+                    <tr>
+                        <td><i class="teal-text prefix"></i>&ensp;ISBN:</td>
+                        <td>{{ book.isbn }}</td>
+                    </tr>
+                    <tr>
+                        <td><i class="teal-text prefix"></i>&ensp;Rating:</td>
+                        <td>{{ book.rating }}</td>
+                    </tr>
+                    <tr>
+                        <td><i class="teal-text prefix"></i>&ensp;Author:</td>
+                        <td>{{ book.book_author }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Book Page Buttons -->
+            <div>
+                <a href="{{ url_for('add_favorite', favorites_id=book._id) }}" aria-label="save favorite book button"
+                    class="waves-effect waves-light btn pill-btn red lighten-2 right">
+                    <i aria-hidden="true">Favorite</i>
+                </a>
             </div>
-            <!-- Book Details Table -->
-            <div class="col s12 m6">
-                <h4>{{ book.book_name }}</h4>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td><i class="teal-text prefix"></i>&ensp;Genre:</td>
-                            <td>{{ book.genre_name }}</td>
-                        </tr>
-                        <tr>
-                            <td><i class="teal-text prefix"></i>&ensp;Author:</td>
-                            <td>{{ book.book_author }}</td>
-                        </tr>
-                        <tr>
-                            <td><i class="teal-text prefix"></i>&ensp;Pages:</td>
-                            <td>{{ book.number_pages }}</td>
-                        </tr>
-                        <tr>
-                            <td><i class="teal-text prefix"></i>&ensp;ISBN:</td>
-                            <td>{{ book.isbn }}</td>
-                        </tr>
-                        <tr>
-                            <td><i class="teal-text prefix"></i>&ensp;Rating:</td>
-                            <td>{{ book.rating }}</td>
-                        </tr>
-                        <tr>
-                            <td><i class="teal-text prefix"></i>&ensp;Author:</td>
-                            <td>{{ book.book_author }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <!-- Book Page Buttons -->
+        </div>
+    </div>
+
+    <!-- Comments Section -->
+    <div class="row container-row">
+        <div class="col s12">
+            <div class="divider"></div>
+            <div class="section">
+                <!-- New comment button -->
                 <div>
-                    <a href="{{ url_for('add_favorite', favorites_id=book._id) }}"
-                        aria-label="save favorite book button"
-                        class="waves-effect waves-light btn pill-btn red lighten-2 right">
-                        <i aria-hidden="true">Favorite</i>
+                    <a href="{{ url_for('add_comment', book_id=book._id) }}" aria-label="add comment button"
+                        class="waves-effect waves-light btn pill-btn right">
+                        <i class="fas fa-comments" aria-hidden="true">Add comment</i>
                     </a>
-                </div>                
-            </div>
-        </div>
-
-        <!-- Comments Section -->
-        <div class="row container-row">
-            <div class="col s12">
+                </div>
+                <h5>Comments</h5>
+                <!-- Comments list iteration -->
+                {% for comment in book.comments %}
                 <div class="divider"></div>
-                <div class="section">
-                    <!-- New comment button -->
-                    <div>
-                        <a href="{{ url_for('add_comment', book_id=book._id) }}"
-                            aria-label="add comment button"
-                            class="waves-effect waves-light btn pill-btn right">
-                            <i class="fas fa-comments" aria-hidden="true">Add comment</i>
-                        </a>
-                    </div>
-                    <h5>Comments</h5>
-                    <!-- Comments list iteration -->
-                    {% for  comment in book.comments %}
-                        <div class="divider"></div>
-                        <p>
-                            Posted By: <strong>{{ comment.created_by }}</strong>
-                        </p>
-                        <div>
-                            <p>
-                                {{ comment.comment }}
-
-                            </p>
-                            {% if session.user|lower == comment.created_by|lower %}
-                            <div class="book-review-btn">
-                                <a href="{{ url_for('delete_comment', book_id=book._id, comment_id=comment._id) }}"
-                                    aria-label="delete book review button"
-                                    class="waves-effect waves-light red btn pill-btn right">
-                                    <i class="fas fa-trash-alt" aria-hidden="true">Delete</i>
-                                </a>
-                            
-                            </div>
-                            {% endif %} 
-                        </div>
-                        
-                    {% endfor %}
-                </div>  
-                <div class="section">
-                    <!-- Buttons (review/delete) -->
+                <p>Posted By: <strong>{{ comment.created_by }}</strong></p>
+                <div>
+                    <p>{{ comment.comment }}</p>
                     {% if session.user|lower == book.created_by|lower or
-                        session.user|lower == 'admin' %}
-                    <div class="book-review-btn">
-                        <a href="{{ url_for('delete_book', book_id=book._id) }}"
-                            aria-label="delete book review button"
-                            class="waves-effect waves-light red btn pill-btn right">
-                            <i class="fas fa-trash-alt" aria-hidden="true">Delete</i>
-                        </a>
-                    
-                    </div>
-                    {% endif %}              
+                    session.user|lower == 'admin' %}
+                    <a href="{{ url_for('delete_comment', book_id=book._id, comment_id=comment._id) }}"
+                        aria-label="delete book review button" class="waves-effect waves-light red btn pill-btn right">
+                        <i aria-hidden="true">Delete</i>
+                    </a>
+                    {% endif %}
+                </div>
+
+                {% endfor %}
             </div>
         </div>
-    </div>        
+    </div>
 
-{% endblock %}
+    {% endblock %}
+</div>
