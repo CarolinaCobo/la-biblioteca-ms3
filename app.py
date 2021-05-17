@@ -84,15 +84,28 @@ def login():
 
     return render_template("login.html")
 
-#
-
+# Look for the username name on the DB,
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # grab the session user's username from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    return render_template("profile.html", username=username)
+    try:
+        # grab the session user's username from db
+        user = mongo.db.users.find_one(
+                {"username": session["user"]})
+        
+
+        user_books = list(mongo.db.books.find(
+                {"created_by": session["user"]}))
+        
+        return render_template("profile.html",
+         user=user,
+         user_books=user_books)
+
+    except Exception:
+        flash(
+            "Please log in first!",
+            "red-text text-darken-2 red lighten-4")
+        return redirect(url_for("login"))
 
 
 # Logout
