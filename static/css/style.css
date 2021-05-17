@@ -41,3 +41,16 @@ nav .brand-logo  {
     -moz-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0);
   }
+
+
+
+/*  ________________  Buttons ________________ */
+
+.btn {
+    size: 2em;
+}
+
+.button-cancel {
+    background-color: #413B88;
+}
+
