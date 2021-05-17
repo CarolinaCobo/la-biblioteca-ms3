@@ -20,57 +20,57 @@
 </head>
 
 <body>
-
     <header>
-
-        <nav class="navbar" >
+        <!-- Navbar -->
+        <nav class="navbar">
             <nav>
                 <div class="nav-wrapper">
-                  <a href="{{ url_for('get_books') }}" class="brand-logo left">La Biblioteca</a>
-                  <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
-                  <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('get_books') }}">Home</a></li>
-                    {% if session.user %}
+                    <a href="{{ url_for('get_books') }}" class="brand-logo left">La Biblioteca</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i
+                            class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down   ">
+                        <li><a href="{{ url_for('get_books') }}">Home</a></li>
+                        {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('add_book') }}">Add Book</a></li>
                         {% if session.user|lower == "admin"|lower %}
                         <li><a href="{{ url_for('get_genres') }}">Manage Genres</a></li>
                         {% endif %}
                         <li><a href="{{ url_for('logout') }}">Logout</a></li>
-                    {% else %}
+                        {% else %}
                         <li><a href="{{ url_for('login') }}">Login</a></li>
                         <li><a href="{{ url_for('register') }}">Sign up</a></li>
-                    {% endif %}
-                  </ul>
+                        {% endif %}
+                    </ul>
                 </div>
-              </nav>
-            
-              <ul class="sidenav right" id="mobile-demo">
+            </nav>
+            <!-- SideNav in mobile devices -->
+            <ul class="sidenav right" id="mobile-demo">
                 <h4 class="center-align">La Biblioteca</h4>
                 <li><a href="{{ url_for('get_books') }}">Home</a></li>
                 {% if session.user %}
-                    <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                    <li><a href="{{ url_for('add_book') }}">Add Book</a></li>
-                    <li><a href="{{ url_for('get_genres') }}">Manage Genres</a></li>
-                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                <li><a href="{{ url_for('add_book') }}">Add Book</a></li>
+                <li><a href="{{ url_for('get_genres') }}">Manage Genres</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
                 {% else %}
-                    <li><a href="{{ url_for('login') }}">Login</a></li>
-                    <li><a href="{{ url_for('register') }}">Sign up</a></li>
-                 {% endif %}
-              </ul>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('register') }}">Sign up</a></li>
+                {% endif %}
+            </ul>
         </nav>
     </header>
 
     <section>
         <!-- flash messages -->
         {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="row flashes">
-                        <h4 class="center-align">{{ message }}</h4>
-                    </div>
-                {% endfor %}
-            {% endif %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashes">
+            <h4 class="center-align">{{ message }}</h4>
+        </div>
+        {% endfor %}
+        {% endif %}
         {% endwith %}
     </section>
 
@@ -86,6 +86,7 @@
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <!-- Materialize -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Script file -->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 

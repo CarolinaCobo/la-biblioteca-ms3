@@ -1,11 +1,11 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} 
+{% block content %}
 
 <h3 class="center-align">Add New Comment</h3>
 
 <div class="row">
     <!-- genre section -->
     <form class="col s12" method="POST" action="{{ url_for('add_comment', book_id=book_id) }}">
-
         <!-- Book description -->
         <div class="row">
             <div class="input-field col s12">
@@ -14,7 +14,6 @@
                 <label for="book_description">Add comment</label>
             </div>
         </div>
-
 
         <!-- Submit button -->
         <div class="row">

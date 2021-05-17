@@ -67,11 +67,11 @@ def login():
             # ensure hashed password matches user input
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
-                        session["user"] = request.form.get("username").lower()
-                        flash("Welcome, {}".format(
-                            request.form.get("username")))
-                        return redirect(url_for(
-                            "profile", username=session["user"]))
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -86,20 +86,20 @@ def login():
 
 # Look for the username name on the DB,
 
+
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     try:
         # grab the session user's username from db
         user = mongo.db.users.find_one(
-                {"username": session["user"]})
-        
+            {"username": session["user"]})
 
         user_books = list(mongo.db.books.find(
-                {"created_by": session["user"]}))
-        
+            {"created_by": session["user"]}))
+
         return render_template("profile.html",
-         user=user,
-         user_books=user_books)
+                               user=user,
+                               user_books=user_books)
 
     except Exception:
         flash(
@@ -183,6 +183,8 @@ def get_genres():
     return render_template("genres.html", genres=genres)
 
 # Add genre (only admin)
+
+
 @app.route("/add_genre", methods=["GET", "POST"])
 def add_genre():
     if request.method == "POST":
@@ -217,7 +219,6 @@ def delete_genre(genre_id):
     mongo.db.genres.remove({"_id": ObjectId(genre_id)})
     flash("Genre Successfully Deleted")
     return redirect(url_for("get_genres"))
-
 
 
 # Open book page
@@ -262,7 +263,6 @@ def add_favorite(favorites_id):
         return redirect(url_for("book_page", book_id=book["_id"]))
 
 
-
 # Add comment
 @app.route("/add_comment/<book_id>", methods=["GET", "POST"])
 def add_comment(book_id):
@@ -283,17 +283,17 @@ def add_comment(book_id):
     return render_template("add_comment.html", book_id=book_id)
 
 # Delete comment
+
+
 @app.route("/delete_comment/<book_id>/<comment_id>")
 def delete_comment(book_id, comment_id):
 
     mongo.db.books.update_one(
         {"_id": ObjectId(book_id)},
         {"$pull": {"comments": {"_id": ObjectId(comment_id)}}})
-   
+
     flash("Comment Successfully Removed")
     return redirect(url_for("book_page", book_id=book_id))
-
-
 
 
 if __name__ == "__main__":
