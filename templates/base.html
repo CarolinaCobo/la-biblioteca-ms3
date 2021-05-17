@@ -16,15 +16,15 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
     {% endblock %}
-    <title>La Biblioteca</title>
+    <title class="title">La Biblioteca</title>
 </head>
 
 <body>
     <header>
         <!-- Navbar -->
-        <nav class="navbar">
-            <nav>
-                <div class="nav-wrapper">
+        <nav class="navbar z-depth-0">
+            <nav class="z-depth-0">
+                <div class="z-depth-0 nav-wrapper #ffffff white">
                     <a href="{{ url_for('get_books') }}" class="brand-logo left">La Biblioteca</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i
                             class="material-icons">menu</i></a>

@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;1,100;1,300;1,500&family=Press+Start+2P&display=swap");
+
+
+* {
+    font-family: "Poppins", sans-serif;
+  }
+
+  body {
+    padding: 0px;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+
+/*  ________________ Navbar Section ________________ */
+
+nav ul a {
+    font-size: 1rem;
+    color: #413B88;
+}
+
+nav ul {
+    margin-right: 10%;
+}
+
+nav .brand-logo  {
+    margin-left: 10%;
+    color: #413B88;
+}
+
+.nav-wrapper{
+    
+    background-color: #fff;
+
+    
+}
+
+/* Delete shadow in Navbar */
+.z-depth-0 {
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+    -moz-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0);
+  }

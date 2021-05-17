@@ -32,3 +32,8 @@ tests:
 
 name
 incorrect password/username
+
+
+
+
+delete shadow in navbar > https://github.com/Dogfalo/materialize/issues/1115
