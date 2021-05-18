@@ -33,6 +33,8 @@
                             class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down   ">
                         <li><a class="hvr-underline-from-center" href="{{ url_for('index') }}">Home</a></li>
+                        <li><a class="hvr-underline-from-center" href="{{ url_for('get_books') }}">Books</a></li>
+
                         {% if session.user %}
                         <li><a class="hvr-underline-from-center" href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a class="hvr-underline-from-center" href="{{ url_for('add_book') }}">Add Book</a></li>
@@ -52,6 +54,7 @@
                 <h4 class="center-align"><a href="{{ url_for('index') }}">La Biblioteca</a></h4>
                
                 <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('get_books') }}">Books</a></li>
                 {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                 <li><a href="{{ url_for('add_book') }}">Add Book</a></li>

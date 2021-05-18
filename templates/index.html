@@ -1,22 +1,68 @@
-
 {% extends "base.html" %}
 {% block index %}
 
 
 
-    <div class="parallax-container">
-        <div class="parallax"><img src="../static/images/hero-image.jpg"></div>
-      </div>
-      <div class="section white">
-        <div class="row container">
-          <h2 class="header">La Biblioteca</h2>
-          <p class="grey-text text-darken-3 lighten-3"></p>
-        </div>
-      </div>
-      <div class="parallax-container">
-        <div class="parallax"><img src="../static/images/hero-image.jpg"></div>
-      </div>
-          
+<div class="parallax-container">
+  <div class="parallax"><img src="../static/images/hero-image.jpg"></div>
+</div>
+<div class="section white hero-container">
+  <div class="row container center-align">
+    <h2 class="header">La Biblioteca</h2>
+    <p class="grey-text text-darken-3 lighten-3">Your new book database</p>
+    <p class="grey-text text-darken-3 lighten-3">Add, comment and pick your favorite books</p>
+  </div>
+
+  <div class="center-align">
+    <button class="btn-large button-index waves-effect ">
+      <a href="{{ url_for('index') }}">
+        Home<i class="material-icons right">home</i></a>
+    </button>
+    <button class="btn-large button-index waves-effect ">
+      <a href="{{ url_for('get_books') }}">
+        Books<i class="material-icons right">book</i></a>
+    </button>
+
+    {% if session.user %}
+
+    <button class="btn-large button-index waves-effect">
+      <a href="{{ url_for('profile', username=session['user']) }}">
+        Profile<i class="material-icons right">face</i></a>
+    </button>
+    <button class="btn-large button-index waves-effect ">
+      <a href="{{ url_for('profile', username=session['user']) }}">
+        Add Book<i class="material-icons right">add</i></a>
+    </button>
+    {% if session.user|lower == "admin"|lower %}
+    <button class="btn-large button-index waves-effect ">
+      <a href="{{ url_for('get_genres') }}">
+        Manage Genre<i class="material-icons right">edit</i></a>
+    </button>
+    {% endif %}
+    <button class="btn-large button-index waves-effect ">
+      <a href="{{ url_for('logout') }}">
+        Log out<i class="material-icons right">close</i></a>
+    </button>
+    {% else %}
+    <button class="btn-large button-index waves-effect ">
+      <a href="{{ url_for('login') }}">
+        Login<i class="material-icons right">keyboard_arrow_right</i></a>
+    </button>
+    <button class="btn-large button-index waves-effect ">
+      <a href="{{ url_for('register') }}">
+        Sign Up<i class="material-icons right">assignment_ind</i></a>
+    </button>
+
+    {% endif %}
+
+
+
+  </div>
+</div>
+<div class="parallax-container">
+  <div class="parallax"><img src="../static/images/hero-image.jpg"></div>
+</div>
+
 
 
 

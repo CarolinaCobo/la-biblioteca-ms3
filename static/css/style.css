@@ -85,9 +85,18 @@ nav .brand-logo  {
     background-color: #413B88;
 }
 
+.button-index {
+    background-color: #413B88;
+}
+
+.button-index a {
+    color: #ffff
+}
 
 
+/* Parallax container Index page */
 
 .parallax-container {
     width: 100%;
+    height: 15rem;
 }
