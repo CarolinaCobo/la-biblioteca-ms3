@@ -61,7 +61,8 @@ nav .brand-logo  {
 }
 
 .nav-wrapper{
-    background-color: #fff;    
+    background-color: #fff;   
+    height: 5rem; 
 }
 
 
@@ -84,3 +85,9 @@ nav .brand-logo  {
     background-color: #413B88;
 }
 
+
+
+
+.parallax-container {
+    width: 100%;
+}
