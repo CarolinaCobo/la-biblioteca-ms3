@@ -122,5 +122,15 @@ h3 {
     padding-top: 3rem;
 }
            
+input.validate.focus-visible {
+    border-bottom: 2px solid #675ddb !important;
+    color: #675ddb !important;
+}
 
-   
+input.validate.invalid.focus-visible {
+    border-bottom: 1px solid #f44336 !important;
+}
+
+label.active {
+    color: #413B88 !important;
+}
