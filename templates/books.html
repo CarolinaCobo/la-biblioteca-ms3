@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align">All Books</h3>
+<h3 class="center-align">Books</h3>
 
 <!-- Search bar -->
 <div class="row card-panel grey lighten-5">
@@ -30,11 +30,10 @@
   <div class="col s10 offset-s1 m6 l4 xl3">
     <div class="card hoverable z-depth-2">
       <div class="card-image">
-        <img src="{{ book.book_image }}" alt="Book cover image" />
+        <img  src="{{ book.book_image }}" alt="Book cover image"/>
         <a href="{{ url_for('book_page', book_id=book._id) }}"
-          class="btn-floating halfway-fab waves-effect waves-light red hoverable" aria-label="open book review button">
-          <i></i>
-        </a>
+          class="btn-floating btn button halfway-fab waves-effect waves-light hoverable" 
+          aria-label="open book button"><i class="material-icons right">expand_more</i></a>
       </div>
       <div class="card-content center-align">
         <span class="card-title truncate">{{ book.book_name }}</span>
