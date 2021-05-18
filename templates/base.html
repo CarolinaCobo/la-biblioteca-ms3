@@ -12,6 +12,9 @@
     <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
+    <!-- Hoover effect -->
+    <link href="css/hover.css" rel="stylesheet" media="all">
+    
     <!-- CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
@@ -29,17 +32,17 @@
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i
                             class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down   ">
-                        <li><a href="{{ url_for('get_books') }}">Home</a></li>
+                        <li><a class="hvr-underline-from-center" href="{{ url_for('get_books') }}">Home</a></li>
                         {% if session.user %}
-                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                        <li><a href="{{ url_for('add_book') }}">Add Book</a></li>
+                        <li><a class="hvr-underline-from-center" href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                        <li><a class="hvr-underline-from-center" href="{{ url_for('add_book') }}">Add Book</a></li>
                         {% if session.user|lower == "admin"|lower %}
-                        <li><a href="{{ url_for('get_genres') }}">Manage Genres</a></li>
+                        <li><a class="hvr-underline-from-center" href="{{ url_for('get_genres') }}">Manage Genres</a></li>
                         {% endif %}
-                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                        <li><a class="hvr-underline-from-center" href="{{ url_for('logout') }}">Logout</a></li>
                         {% else %}
-                        <li><a href="{{ url_for('login') }}">Login</a></li>
-                        <li><a href="{{ url_for('register') }}">Sign up</a></li>
+                        <li><a class="hvr-underline-from-center" href="{{ url_for('login') }}">Login</a></li>
+                        <li><a class="hvr-underline-from-center" href="{{ url_for('register') }}">Sign up</a></li>
                         {% endif %}
                     </ul>
                 </div>
@@ -72,6 +75,12 @@
         {% endfor %}
         {% endif %}
         {% endwith %}
+    </section>
+
+    <section>
+        <div>
+            
+        </div>
     </section>
 
     <main class="container">
