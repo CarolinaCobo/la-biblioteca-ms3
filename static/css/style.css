@@ -174,4 +174,16 @@ label.active {
     color: #413B88 !important;
 }
 
+
+/*  ________________  Profile page ________________ */ 
+
+td, th {
+    text-align: center;
+}
+
+table{
+   
+    width: 100%;
+}
+
 /*  ________________  Books ________________ */
