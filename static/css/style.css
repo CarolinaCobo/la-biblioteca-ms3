@@ -87,7 +87,7 @@ h3 {
     size: 2em;
 }
 
-.button-cancel {
+.button-purple {
     background-color: #413B88;
 }
 
@@ -104,8 +104,16 @@ h3 {
     background-color: #675ddb;
 }
 
+.search-cancel-button {
+    background-color: #f44336;
+}
+
+.search-cancel-button:hover {
+    background-color: tomato;
+}
 
 
+/*  ________________  Parallax ________________ */
 
 /* Parallax container Index page */
 
@@ -121,10 +129,14 @@ h3 {
     padding-bottom: 4rem;
     padding-top: 3rem;
 }
-           
+    
+
+/*  ________________  Input fields ________________ */
+
+/* Change the color of the validate fields to overwrite Materialize default color */
 input.validate.focus-visible {
-    border-bottom: 2px solid #675ddb !important;
-    color: #675ddb !important;
+    border-bottom: 3px solid #675ddb !important;
+    
 }
 
 input.validate.invalid.focus-visible {
@@ -134,3 +146,8 @@ input.validate.invalid.focus-visible {
 label.active {
     color: #413B88 !important;
 }
+
+/*  ________________  Books ________________ */
+
+
+
