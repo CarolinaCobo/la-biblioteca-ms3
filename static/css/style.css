@@ -181,9 +181,9 @@ td, th {
     text-align: center;
 }
 
-table{
-   
-    width: 100%;
+.table-container {
+    width: 75%;
+    margin-left: 12%;
 }
 
 /*  ________________  Books ________________ */
