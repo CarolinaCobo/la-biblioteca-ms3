@@ -3,9 +3,9 @@
 
 * {
     font-family: "Poppins", sans-serif;
-  }
+}
 
-  body {
+body {
     padding: 0px;
     margin: 0;
     overflow-x: hidden;
@@ -28,8 +28,9 @@ nav ul a {
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
     position: relative;
     overflow: hidden;
-  }
-  .hvr-underline-from-center:before {
+}
+
+.hvr-underline-from-center:before {
     content: "";
     position: absolute;
     z-index: -1;
@@ -44,8 +45,11 @@ nav ul a {
     transition-duration: 0.3s;
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
-  }
-  .hvr-underline-from-center:hover:before, .hvr-underline-from-center:focus:before, .hvr-underline-from-center:active:before {
+}
+
+.hvr-underline-from-center:hover:before,
+.hvr-underline-from-center:focus:before,
+.hvr-underline-from-center:active:before {
     left: 0;
     right: 0;
 }
@@ -55,14 +59,14 @@ nav ul {
     margin-right: 10%;
 }
 
-nav .brand-logo  {
+nav .brand-logo {
     margin-left: 10%;
     color: #413B88;
 }
 
-nav .nav-wrapper{
-    background-color: #fff;   
-  
+nav .nav-wrapper {
+    background-color: #fff;
+
     height: 140%;
     margin-top: 2rem;
 }
@@ -91,7 +95,8 @@ h3 {
     background-color: #413B88;
 }
 
-.button-index, .button {
+.button-index,
+.button {
     background-color: #413B88;
 }
 
@@ -100,18 +105,32 @@ h3 {
     color: #ffff
 }
 
-.btn:hover, .btn-large:hover, .btn-small:hover {
+.btn:hover,
+.btn-large:hover,
+.btn-small:hover {
     background-color: #675ddb;
 }
 
-.search-cancel-button {
+.search-backspace-button,
+.button-delete {
     background-color: #f44336;
 }
 
-.search-cancel-button:hover {
+.search-backspace-button:hover,
+.button-delete:hover {
     background-color: tomato;
 }
 
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+    font-size: large;
+    color: #413B88;
+    font-size: 1.5rem;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
+    color: #675ddb;
+}
 
 /*  ________________  Parallax ________________ */
 
@@ -129,14 +148,14 @@ h3 {
     padding-bottom: 4rem;
     padding-top: 3rem;
 }
-    
+
 
 /*  ________________  Input fields ________________ */
 
 /* Change the color of the validate fields to overwrite Materialize default color */
 input.validate.focus-visible {
-    border-bottom: 3px solid #675ddb !important;
-    
+    border-bottom: 3px solid #413B88 !important;
+
 }
 
 input.validate.invalid.focus-visible {
@@ -148,6 +167,3 @@ label.active {
 }
 
 /*  ________________  Books ________________ */
-
-
-

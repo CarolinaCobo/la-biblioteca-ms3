@@ -3,6 +3,7 @@
     $('.sidenav').sidenav({edge: "right"});
     $('select').formSelect();
     $('.parallax').parallax();
+    $('.modal').modal();
   });
 
   
