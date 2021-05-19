@@ -1,8 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;1,100;1,300;1,500&family=Press+Start+2P&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Halant:wght@600&family=Nunito+Sans:wght@200;300;700&display=swap');
 
 * {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 body {
@@ -12,12 +11,15 @@ body {
 }
 
 
+
 /*  ________________ Navbar Section ________________ */
 
 nav ul a {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     color: #413B88;
     font-weight: bold;
+    font-family: 'Halant', serif; 
+    font-weight: 600;
 }
 
 .hvr-underline-from-center {
@@ -77,6 +79,12 @@ h3 {
     margin-top: 4rem;
 }
 
+.brand-logo {
+    font-family: 'Halant', serif; 
+    font-weight: 700;
+   
+  
+}
 
 /* Delete shadow in Navbar */
 .z-depth-0 {
