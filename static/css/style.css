@@ -94,8 +94,13 @@ h3 {
 }
 
 /*  ________________  Buttons ________________ */
+.btn-large {
+    border-radius: 6px;
+}
 
-.btn {
+
+.btn, .button-delete, 
+.button-purple {
     size: 2em;
 }
 
@@ -140,6 +145,16 @@ h3 {
     color: #675ddb;
 }
 
+
+.book-button {
+    height: 50px;
+    width: 50px;
+}
+
+.expand-icon {
+    margin-top: 5px;
+    font-weight: 3px;
+}
 /*  ________________  Parallax ________________ */
 
 /* Parallax container Index page */
@@ -197,7 +212,7 @@ td, th {
     width: 100%;
     height: auto;
     max-height: 400px;
-    max-width: 280px;
+    max-width: 300px;
     margin-top: 3.2vh;
     margin-left: auto;
     margin-right: auto;

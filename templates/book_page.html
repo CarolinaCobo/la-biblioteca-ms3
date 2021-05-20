@@ -1,32 +1,33 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 {% block content %}
 
 <div class="container book-page z-depth-3">
     <!-- Book Details Section -->
     <div class="row container-row">
-        <!-- Book Cover Image -->
-        <div id="book-page-img" class="col s12 m6">
-            <img src="{{ book.book_image }}" alt="Book cover image" />
-        </div>
+
         <!-- Book Details Table -->
         <div>
             <a href="#modal2" aria-label="save favorite book button"
-                class="waves-effect waves-light btn-large btn pill-btn red lighten-2 right favorite-button modal-trigger" >
-                <i  aria-hidden="true" class="material-icons">star_border</i>      
+                class="waves-effect waves-light btn-large btn pill-btn red lighten-2 right favorite-button modal-trigger">
+                <i aria-hidden="true" class="material-icons">star_border</i>
             </a>
 
             <!-- Modal for deleting book -->
             <div id="modal2" class="modal">
-              <div class="modal-content center-align">
-                <h4>Book added to your favorite selection</h4>
-                <a href="{{ url_for('add_favorite', favorites_id=book._id) }}"  class="modal-close waves-effect btn-flat modal-button center-align">Close</a>
-              </div>
+                <div class="modal-content center-align">
+                    <h4>Book added to your favorite selection</h4>
+                    <a href="{{ url_for('add_favorite', favorites_id=book._id) }}"
+                        class="modal-close waves-effect btn-flat modal-button center-align">Close</a>
+                </div>
             </div>
 
-
+            <!-- Book Cover Image -->
+            <div id="book-page-img" class="col s12 m6">
+                <img src="{{ book.book_image }}" alt="Book cover image" />
+            </div>
         </div>
         <div class="col s12 m6">
-            <h4>{{ book.book_name }}</h4>
+        <h4>{{ book.book_name }}</h4>
             <table>
                 <tbody>
                     <tr>
@@ -52,7 +53,7 @@
                 </tbody>
             </table>
             <!-- Book Page Buttons -->
-           
+
         </div>
     </div>
 
@@ -65,7 +66,7 @@
                 <div>
                     <a href="{{ url_for('add_comment', book_id=book._id) }}" aria-label="add comment button"
                         class="waves-effect waves-light btn pill-btn right">
-                        <i  aria-hidden="true">Add comment</i>
+                        <i aria-hidden="true">Add comment</i>
                     </a>
                 </div>
                 <h5>Comments</h5>

@@ -34,8 +34,8 @@
       <div class="card-image">
         <img  src="{{ book.book_image }}" alt="Book cover image"/>
         <a href="{{ url_for('book_page', book_id=book._id) }}"
-          class="btn-floating btn btn-large button halfway-fab waves-effect waves-light hoverable" 
-          aria-label="open book button"><i class="material-icons right">expand_more</i></a>
+          class="btn-floating btn button halfway-fab waves-effect waves-light hoverable book-button"
+          aria-label="open book button"><i class="material-icons expand-icon">expand_more</i></a>
       </div>
       <div class="card-content center-align">
         <span class="card-title truncate">{{ book.book_name }}</span>
@@ -44,10 +44,10 @@
       </div>
       <div class="card-action center-align">
         {% if session.user|lower == book.created_by|lower %}
-        <a href="{{ url_for('edit_book', book_id=book._id) }}" class="waves-effect waves-light btn s3 button-purple">
+        <a href="{{ url_for('edit_book', book_id=book._id) }}" class="waves-effect waves-light btn btn-large s3 button-purple">
           <i class="material-icons center-align">edit</i></a>
         
-        <a class="waves-effect waves-light btn modal-trigger button-delete" href="#modal1">
+        <a class="waves-effect waves-light btn modal-trigger button-delete btn-large" href="#modal1">
           <i class="material-icons center-align">cancel</i></a>
 
         <!-- Modal for deleting book -->
