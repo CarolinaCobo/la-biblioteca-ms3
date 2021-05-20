@@ -186,4 +186,37 @@ td, th {
     margin-left: 12%;
 }
 
-/*  ________________  Books ________________ */
+/*  ________________  Books page ________________ */
+
+.book-page {
+    margin-top: 5rem;
+}
+
+#book-page-img img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    max-width: 280px;
+    margin-top: 3.2vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+    width: 125%;
+}
+
+.favorite-button {
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.favorite-button:hover {
+    background-color: violet;
+}
+
+.modal .modal-close {
+
+    font-size: 1.5rem;
+}

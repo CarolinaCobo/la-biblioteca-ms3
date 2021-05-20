@@ -259,7 +259,6 @@ def add_favorite(favorites_id):
             {"_id": ObjectId(username["_id"])},
             {"$push": {"favorite": favorite}})
 
-        flash("Favorite book added to your profile")
         return redirect(url_for("book_page", book_id=book["_id"]))
 
     # Display for users that are not logged in.

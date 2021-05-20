@@ -1,7 +1,7 @@
 {% extends "base.html" %} 
 {% block content %}
 
-<div class="container z-depth-3">
+<div class="container book-page z-depth-3">
     <!-- Book Details Section -->
     <div class="row container-row">
         <!-- Book Cover Image -->
@@ -9,6 +9,22 @@
             <img src="{{ book.book_image }}" alt="Book cover image" />
         </div>
         <!-- Book Details Table -->
+        <div>
+            <a href="#modal2" aria-label="save favorite book button"
+                class="waves-effect waves-light btn-large btn pill-btn red lighten-2 right favorite-button modal-trigger" >
+                <i  aria-hidden="true" class="material-icons">star_border</i>      
+            </a>
+
+            <!-- Modal for deleting book -->
+            <div id="modal2" class="modal">
+              <div class="modal-content center-align">
+                <h4>Book added to your favorite selection</h4>
+                <a href="{{ url_for('add_favorite', favorites_id=book._id) }}"  class="modal-close waves-effect btn-flat modal-button center-align">Close</a>
+              </div>
+            </div>
+
+
+        </div>
         <div class="col s12 m6">
             <h4>{{ book.book_name }}</h4>
             <table>
@@ -30,22 +46,13 @@
                         <td>{{ book.isbn }}</td>
                     </tr>
                     <tr>
-                        <td><i class="teal-text prefix"></i>&ensp;Rating:</td>
-                        <td>{{ book.rating }}</td>
-                    </tr>
-                    <tr>
                         <td><i class="teal-text prefix"></i>&ensp;Author:</td>
                         <td>{{ book.book_author }}</td>
                     </tr>
                 </tbody>
             </table>
             <!-- Book Page Buttons -->
-            <div>
-                <a href="{{ url_for('add_favorite', favorites_id=book._id) }}" aria-label="save favorite book button"
-                    class="waves-effect waves-light btn pill-btn red lighten-2 right">
-                    <i aria-hidden="true">Favorite</i>
-                </a>
-            </div>
+           
         </div>
     </div>
 
