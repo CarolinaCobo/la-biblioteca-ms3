@@ -167,7 +167,7 @@ h3 {
     height: 20rem;
 }
 
-.section {
+.hero-container {
     padding-bottom: 4rem;
     padding-top: 3rem;
 }
@@ -196,10 +196,7 @@ td, th {
     text-align: center;
 }
 
-.table-container {
-    width: 75%;
-    margin-left: 12%;
-}
+
 
 /*  ________________  Books page ________________ */
 
@@ -218,13 +215,16 @@ td, th {
     margin-right: auto;
 }
 
-.container {
-    width: 125%;
+.book-container {
+    margin-top: 50px;
+    padding-bottom: 50px;
+    position: relative;
 }
 
 .favorite-button {
     margin-top: 20px;
     margin-right: 20px;
+   
 }
 
 .favorite-button:hover {
@@ -232,6 +232,24 @@ td, th {
 }
 
 .modal .modal-close {
-
     font-size: 1.5rem;
+}
+
+.comments-title {
+    margin-top: 50px;
+}
+
+.comments-section {
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Media queries */
+
+/* Burger icon, small devices */
+@media only screen and (min-width: 601px){
+    nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
+color: black;
+}
 }

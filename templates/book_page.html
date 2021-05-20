@@ -1,14 +1,20 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
-<div class="container book-page z-depth-3">
+<div class="container z-depth-3">
     <!-- Book Details Section -->
-    <div class="row container-row">
-
+    <div class="row container-row book-container">
         <!-- Book Details Table -->
         <div>
-            <a href="#modal2" aria-label="save favorite book button"
-                class="waves-effect waves-light btn-large btn pill-btn red lighten-2 right favorite-button modal-trigger">
+            <a href="#modal2" aria-label="save favorite book button" class="
+          waves-effect waves-light
+          btn-large btn
+          pill-btn
+          red
+          lighten-2
+          right
+          favorite-button
+          modal-trigger
+        ">
                 <i aria-hidden="true" class="material-icons">star_border</i>
             </a>
 
@@ -27,7 +33,7 @@
             </div>
         </div>
         <div class="col s12 m6">
-        <h4>{{ book.book_name }}</h4>
+            <h4 class="center-align">{{ book.book_name }}</h4>
             <table>
                 <tbody>
                     <tr>
@@ -53,42 +59,59 @@
                 </tbody>
             </table>
             <!-- Book Page Buttons -->
-
         </div>
     </div>
+</div>
+<!-- Comments Section -->
 
-    <!-- Comments Section -->
-    <div class="row container-row">
-        <div class="col s12">
-            <div class="divider"></div>
-            <div class="section">
-                <!-- New comment button -->
-                <div>
-                    <a href="{{ url_for('add_comment', book_id=book._id) }}" aria-label="add comment button"
-                        class="waves-effect waves-light btn pill-btn right">
-                        <i aria-hidden="true">Add comment</i>
-                    </a>
-                </div>
-                <h5>Comments</h5>
-                <!-- Comments list iteration -->
-                {% for comment in book.comments %}
-                <div class="divider"></div>
-                <p>Posted By: <strong>{{ comment.created_by }}</strong></p>
-                <div>
-                    <p>{{ comment.comment }}</p>
-                    {% if session.user|lower == book.created_by|lower or
-                    session.user|lower == 'admin' %}
-                    <a href="{{ url_for('delete_comment', book_id=book._id, comment_id=comment._id) }}"
-                        aria-label="delete book review button" class="waves-effect waves-light red btn pill-btn right">
-                        <i aria-hidden="true">Delete</i>
-                    </a>
-                    {% endif %}
-                </div>
+<div class="row container-row comments-title">
+    <h5>
+        Comments
+        <a href="{{ url_for('add_comment', book_id=book._id) }}" class="waves-effect waves-light btn-large btn button-purple right">
+            <i aria-hidden="true" class="material-icons">mode_comment</i></a>
+    </h5>
+</div>
 
-                {% endfor %}
+
+
+{% for comment in book.comments %}
+<div class="section comments-section">
+    <div class="col s12 m7">
+        <div class="card horizontal">
+            <div class="card-stacked">
+                <div class="card-action">        
+                    <div>
+                        <p>{{ comment.comment }}</p>
+                        <br>
+                        <p>Posted By: <strong>{{ comment.created_by }}</strong></p>
+                        {% if session.user|lower == book.created_by|lower or session.user|lower == 'admin' %}
+                        <a class="waves-effect waves-light btn modal-trigger button-delete right" href="#modal3">
+                            <i class="material-icons center-align">cancel</i>
+                        
+                        </a>
+                        {% endif %}
+
+
+                        <div id="modal3" class="modal">
+                            <div class="modal-content center-align">
+                              <h4>Are you sure you want to delete this comment?</h4>
+                              <a href="{{ url_for('delete_comment', book_id=book._id, comment_id=comment._id) }}" class="waves-effect waves-ligh modal-button">Delete</a>
+                              <a href="#!" class="modal-close waves-effect btn-flat modal-button">Cancel</a>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    {% endblock %}
 </div>
+{% endfor %}
+
+
+
+
+
+{% endblock %}

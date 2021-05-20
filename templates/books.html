@@ -35,7 +35,7 @@
         <img  src="{{ book.book_image }}" alt="Book cover image"/>
         <a href="{{ url_for('book_page', book_id=book._id) }}"
           class="btn-floating btn button halfway-fab waves-effect waves-light hoverable book-button"
-          aria-label="open book button"><i class="material-icons expand-icon">expand_more</i></a>
+          aria-label="open book button"><i class="material-icons">expand_more</i></a>
       </div>
       <div class="card-content center-align">
         <span class="card-title truncate">{{ book.book_name }}</span>
