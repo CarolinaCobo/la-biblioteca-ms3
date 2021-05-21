@@ -75,35 +75,18 @@
             </div>
         </div>
 
-        <!-- Rating -->
-        <div class="row">
-        <div class="input-field col s12">
-            <select id="rating" name="rating">
-              <option value="" disabled selected>Book rating</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-          </div>
-        </div>
-
-
-
             <!-- Submit button -->
-            <div class="row">
-                <!-- Edit button -->
-                <button class="btn-large waves-effect waves-light right">
-                    Edit book<i class="material-icons right">arrow_forward</i>
-                </button>
-                <!-- Cancel button -->
-                <button class="btn-large waves-effect waves-light right red">
-                    <a href="{{ url_for('get_books') }}">
-                        Cancel <i class="right"></i>
-                    </a>
-                </button>
-            </div>
-            </form>
+        <div class="row">
+            <!-- Edit button -->
+            <button class="btn-large waves-effect waves-light button-purple right">Edit<i class="material-icons right">edit</i>
+            </button>
+            <!-- Cancel button -->
+            <button class="btn-large waves-effect btn button-cancel waves-light right red">
+                <a href="{{ url_for('get_books') }}">
+                    Cancel <i class="material-icons right">close</i>
+                </a>
+            </button>
+        </div>
+        </form>
 </div>
 {% endblock %}

@@ -155,6 +155,13 @@ h3 {
     margin-top: 5px;
     font-weight: 3px;
 }
+
+
+.button-cancel > a {
+    color: white;
+}
+
+
 /*  ________________  Parallax ________________ */
 
 /* Parallax container Index page */
