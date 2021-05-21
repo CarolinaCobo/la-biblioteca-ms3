@@ -248,8 +248,11 @@ td, th {
 /* Media queries */
 
 /* Burger icon, small devices */
-@media only screen and (min-width: 601px){
-    nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
-color: black;
+
+nav .sidenav-trigger i {
+   color: #413B88;
 }
+
+.sidenav li>a{
+    color: #413B88;
 }
