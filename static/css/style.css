@@ -245,7 +245,7 @@ td, th {
 }
 
 
-/* Media queries */
+
 
 /* Burger icon, small devices */
 
@@ -255,4 +255,30 @@ nav .sidenav-trigger i {
 
 .sidenav li>a{
     color: #413B88;
+}
+
+
+
+
+/*  ________________ Media Queries ________________ */
+
+/* Make search bar take the whole width so it displays the 
+text correctly in small devices */
+@media screen and (max-width: 600px) {
+    .row .col.s12 {
+        width: auto;
+    }
+}
+
+
+
+.flashes {
+    background-color: #675ddb;
+    max-width: 60%;
+   
+}
+
+.flashes h4 {
+    padding-top: 20px;
+
 }
