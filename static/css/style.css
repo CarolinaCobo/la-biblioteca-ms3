@@ -176,15 +176,6 @@ h3 {
 /*  ________________  Input fields ________________ */
 
 /* Change the color of the validate fields to overwrite Materialize default color */
-input.validate.focus-visible {
-    border-bottom: 3px solid #413B88 !important;
-
-}
-
-input.validate.invalid.focus-visible {
-    border-bottom: 1px solid #f44336 !important;
-}
-
 label.active {
     color: #413B88 !important;
 }
@@ -228,7 +219,7 @@ td, th {
 }
 
 .favorite-button:hover {
-    background-color: violet;
+    background-color: rgb(206, 187, 206);
 }
 
 .modal .modal-close {
@@ -242,6 +233,13 @@ td, th {
 .comments-section {
     padding: 0;
     margin: 0;
+}
+
+
+
+
+.dropdown-content li>a, .dropdown-content li>span {
+    color: #413B88;
 }
 
 
