@@ -127,24 +127,30 @@ def logout():
 
 @app.route("/add_book", methods=["GET", "POST"])
 def add_book():
-    if request.method == "POST":
-        book = {
-            "genre_name": request.form.get("genre_name"),
-            "book_name": request.form.get("book_name"),
-            "book_description": request.form.get("book_description"),
-            "book_author": request.form.get("book_author"),
-            "book_image": request.form.get("book_image"),
-            "number_pages": request.form.get("number_pages"),
-            "isbn": request.form.get("isbn"),
-            "rating": request.form.get("rating"),
-            "created_by": session["user"]
-        }
-        mongo.db.books.insert_one(book)
-        flash("Book Successfully Added")
-        return redirect(url_for("get_books"))
+    try:
+        if request.method == "POST":
+            book = {
+                "genre_name": request.form.get("genre_name"),
+                "book_name": request.form.get("book_name"),
+                "book_description": request.form.get("book_description"),
+                "book_author": request.form.get("book_author"),
+                "book_image": request.form.get("book_image"),
+                "number_pages": request.form.get("number_pages"),
+                "isbn": request.form.get("isbn"),
+                "rating": request.form.get("rating"),
+                "created_by": session["user"]
+            }
+            mongo.db.books.insert_one(book)
+            flash("Book Successfully Added")
+            return redirect(url_for("get_books"))
 
-    genres = mongo.db.genres.find().sort("genre_name", 1)
-    return render_template("add_book.html", genres=genres)
+        genres = mongo.db.genres.find().sort("genre_name", 1)
+        return render_template("add_book.html", genres=genres)
+
+    except Exception:
+        flash(
+            "Please log in first")
+        return redirect(url_for("login"))
 
 # Update book details (only for the ones added by the user)
 
@@ -179,14 +185,12 @@ def delete_book(book_id):
     return redirect(url_for("get_books"))
 
 
-
 # Get genres
 @app.route("/get_genres")
 def get_genres():
     genres = list(mongo.db.genres.find().sort("genre_name", 1))
     print(genres)
     return render_template("genres.html", genres=genres)
-
 
 
 # Add genre (only admin)
@@ -238,7 +242,8 @@ def book_page(book_id):
 @app.route("/add_favorite/<favorites_id>")
 def add_favorite(favorites_id):
     # Allows the user to add a book review for their favorite section
-    if session["user"]:
+    if "user" in session:
+        print("here")
         # grab the session user's details from db
         username = mongo.db.users.find_one(
             {"username": session["user"]})
@@ -246,7 +251,8 @@ def add_favorite(favorites_id):
         # grab the book details
         book = mongo.db.books.find_one(
             {"_id": ObjectId(favorites_id)})
-        # Collect the favorites object data
+
+        # Collect the favorite object data
         favorite = {
             "book_id": book["_id"],
             "book_name": book["book_name"],
@@ -259,10 +265,14 @@ def add_favorite(favorites_id):
             {"_id": ObjectId(username["_id"])},
             {"$push": {"favorite": favorite}})
 
+        flash(
+            "Favorite book added to your profile")
         return redirect(url_for("book_page", book_id=book["_id"]))
 
     # Display for users that are not logged in.
     else:
+        book = mongo.db.books.find_one(
+            {"_id": ObjectId(favorites_id)})
         flash("To add favorites, please register")
         return redirect(url_for("book_page", book_id=book["_id"]))
 
@@ -284,6 +294,7 @@ def add_comment(book_id):
         flash("New Comment Added")
         return redirect(url_for("book_page", book_id=book_id))
 
+    
     return render_template("add_comment.html", book_id=book_id)
 
 # Delete comment
