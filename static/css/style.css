@@ -10,6 +10,9 @@ body {
     overflow-x: hidden;
 }
 
+a {
+    color: #675ddb;
+}
 
 
 /*  ________________ Navbar Section ________________ */
@@ -173,6 +176,7 @@ h3 {
 .btn, .button-delete, .button-purple {
     margin-left: 2px;
 }
+
 
 /*  ________________  Parallax ________________ */
 
