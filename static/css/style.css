@@ -162,6 +162,13 @@ h3 {
 }
 
 
+.modal-button {
+    font-size: 1.5rem;
+    color: #413B88;
+    text-transform: uppercase;
+
+}
+
 /*  ________________  Parallax ________________ */
 
 /* Parallax container Index page */

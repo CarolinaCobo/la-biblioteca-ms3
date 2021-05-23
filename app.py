@@ -170,26 +170,26 @@ def edit_book(book_id):
     genres = mongo.db.genres.find().sort("genre_name", 1)
     return render_template("edit_book.html", book=book, genres=genres)
 
+
 # Delete book (only the ones added by the user)
-
-
 @app.route("/delete_book/<book_id>")
 def delete_book(book_id):
     mongo.db.books.remove({"_id": ObjectId(book_id)})
     flash("Book Successfully Deleted")
     return redirect(url_for("get_books"))
 
+
+
 # Get genres
-
-
 @app.route("/get_genres")
 def get_genres():
     genres = list(mongo.db.genres.find().sort("genre_name", 1))
+    print(genres)
     return render_template("genres.html", genres=genres)
 
+
+
 # Add genre (only admin)
-
-
 @app.route("/add_genre", methods=["GET", "POST"])
 def add_genre():
     if request.method == "POST":
