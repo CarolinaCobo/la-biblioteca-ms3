@@ -276,18 +276,7 @@ nav .sidenav-trigger i {
 }
 
 
-
-
-/*  ________________ Media Queries ________________ */
-
-/* Make search bar take the whole width so it displays the 
-text correctly in small devices */
-@media screen and (max-width: 600px) {
-    .row .col.s12 {
-        width: auto;
-    }
-}
-
+/*  ________________ Flash messages ________________ */
 
 
 .flashes {
@@ -300,3 +289,20 @@ text correctly in small devices */
     padding-top: 20px;
 
 }
+
+
+
+/*  ________________ Media Queries ________________ */
+
+/* Make search bar take the whole width so it displays the 
+text correctly in small devices */
+@media screen and (max-width: 600px) {
+    .row .col.s12 {
+        width: auto;
+    }
+}
+
+.button-index, .button {
+   margin-bottom: 6px;
+}
+
