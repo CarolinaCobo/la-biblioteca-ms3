@@ -159,6 +159,7 @@ h3 {
 
 .button-cancel > a {
     color: white;
+    margin-left: 2px;
 }
 
 
@@ -167,6 +168,10 @@ h3 {
     color: #413B88;
     text-transform: uppercase;
 
+}
+
+.btn, .button-delete, .button-purple {
+    margin-left: 2px;
 }
 
 /*  ________________  Parallax ________________ */
