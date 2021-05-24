@@ -307,15 +307,22 @@ text correctly in small devices */
     }
 
     .card-row {
-        margin-left: 10%;
-    }
-
-    .genre-header {
-        font-size: 2.5rem;
+        margin-left: 0;
     }
     
     .input-field.col .prefix ~ label, .input-field.col .prefix ~ .validate ~ label {
         width: 90%;
+    }
+
+    .row {
+        margin-left: 12%;
+        margin-right: auto;
+        margin-bottom: 0;
+
+    }
+
+    .hero-container {
+        max-width: 90%;
     }
 
 }
