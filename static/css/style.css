@@ -297,12 +297,24 @@ nav .sidenav-trigger i {
 /* Make search bar take the whole width so it displays the 
 text correctly in small devices */
 @media screen and (max-width: 600px) {
-    .row .col.s12 {
+   .row .col.s12 {
         width: auto;
     }
+
+ 
+    .button-index, .button {
+    margin-bottom: 6px;
+    }
+
+    .card-row {
+        margin-left: 10%;
+    }
+
+    .genre-header {
+        font-size: 2.5rem;
+    }
+
+
 }
 
-.button-index, .button {
-   margin-bottom: 6px;
-}
 
