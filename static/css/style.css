@@ -14,6 +14,14 @@ a {
     color: #675ddb;
 }
 
+/* Utilities */
+
+.grid-container {
+    display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-rows: 1fr;
+  gap: 40px 40px;
+}
 
 /*  ________________ Navbar Section ________________ */
 
@@ -214,10 +222,6 @@ td, th {
 
 /*  ________________  Books page ________________ */
 
-.book-page {
-    margin-top: 5rem;
-}
-
 #book-page-img img {
     display: block;
     width: 100%;
@@ -227,12 +231,6 @@ td, th {
     margin-top: 3.2vh;
     margin-left: auto;
     margin-right: auto;
-}
-
-.book-container {
-    margin-top: 50px;
-    padding-bottom: 50px;
-    position: relative;
 }
 
 .favorite-button {
@@ -262,7 +260,9 @@ td, th {
     color: #413B88;
 }
 
-
+.book-description {
+    text-align: justify;
+}
 
 
 /* Burger icon, small devices */
