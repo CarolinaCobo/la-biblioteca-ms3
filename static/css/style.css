@@ -313,7 +313,10 @@ text correctly in small devices */
     .genre-header {
         font-size: 2.5rem;
     }
-
+    
+    .input-field.col .prefix ~ label, .input-field.col .prefix ~ .validate ~ label {
+        width: 90%;
+    }
 
 }
 
