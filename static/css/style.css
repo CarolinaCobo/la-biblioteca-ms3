@@ -14,15 +14,6 @@ a {
     color: #675ddb;
 }
 
-/* Utilities */
-
-.grid-container {
-    display: grid;
-  grid-template-columns: 1fr 1fr 1fr ;
-  grid-template-rows: 1fr;
-  gap: 40px 40px;
-}
-
 /*  ________________ Navbar Section ________________ */
 
 nav ul a {
@@ -220,6 +211,25 @@ td, th {
 
 
 
+/*  ________________  ALL books page ________________ */
+
+
+/* Utilities */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 40px 40px;
+}
+
+
+.card-container {
+    min-height: 600px;
+    min-width: 200px;
+}
+
+
 /*  ________________  Books page ________________ */
 
 #book-page-img img {
@@ -264,6 +274,9 @@ td, th {
     text-align: justify;
 }
 
+.book-container {
+    margin-top: 50px;
+}
 
 /* Burger icon, small devices */
 
@@ -292,6 +305,7 @@ nav .sidenav-trigger i {
 
 
 
+
 /*  ________________ Media Queries ________________ */
 
 /* Make search bar take the whole width so it displays the 
@@ -315,7 +329,7 @@ text correctly in small devices */
     }
 
     .row {
-        margin-left: 12%;
+      
         margin-right: auto;
         margin-bottom: 0;
 
@@ -325,6 +339,13 @@ text correctly in small devices */
         max-width: 90%;
     }
 
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-template-rows: 1fr 1fr;
+
+       
+      }
 }
 
 
