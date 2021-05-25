@@ -137,7 +137,6 @@ def add_book():
                 "book_image": request.form.get("book_image"),
                 "number_pages": request.form.get("number_pages"),
                 "isbn": request.form.get("isbn"),
-                "rating": request.form.get("rating"),
                 "created_by": session["user"]
             }
             mongo.db.books.insert_one(book)
@@ -152,9 +151,8 @@ def add_book():
             "Please log in first")
         return redirect(url_for("login"))
 
+
 # Update book details (only for the ones added by the user)
-
-
 @app.route("/edit_book/<book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
     if request.method == "POST":
@@ -166,7 +164,6 @@ def edit_book(book_id):
             "book_image": request.form.get("book_image"),
             "number_pages": request.form.get("number_pages"),
             "isbn": request.form.get("isbn"),
-            "rating": request.form.get("rating"),
             "created_by": session["user"]
         }
         mongo.db.books.update({"_id": ObjectId(book_id)}, submit)
