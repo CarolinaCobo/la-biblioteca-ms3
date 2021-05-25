@@ -45,6 +45,7 @@
         <span class="card-text-sm truncate">{{ book.book_author }}</span><br />
         <span class="card-text-sm truncate"><strong><em>{{ book.genre_name }}</em></strong></span>
       </div>
+
       <div class="card-action center-align">
         {% if session.user|lower == book.created_by|lower %}
         <a href="{{ url_for('edit_book', book_id=book._id) }}"
@@ -73,14 +74,14 @@
       {% endif %}
     </div>
   </div>
+  {% endfor %}
 </div>
-{% endfor %}
 
 {% else %}
 <div class="row">
-            <div class="col s12">
-                <h3 class="z-depth-3 red-text center-align">No Results Found</h3>
-            </div>
-        </div>
-{% endif %} 
+  <div class="col s12">
+    <h3 class="z-depth-3 red-text center-align">No Results Found</h3>
+  </div>
+</div>
+{% endif %}
 {% endblock %}
