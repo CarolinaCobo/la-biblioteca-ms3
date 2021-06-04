@@ -120,15 +120,35 @@ The wireframes for this project can be found below:
 
 ### Home page
 
-In the home page buttons for the different functionalities can be found in both the navbar and the buttons in the parallax section. The display of the navbar and buttons is different depending on if the user is logged in or not.
+In the home page the user could find the buttons for the different functionalities on the website. It's in both the navbar and the buttons in the parallax section. The display of the navbar and buttons is different depending on if the user is logged in or not.
 
 ### Books page
 
-In this page from top to bottom, the user can search for a particular book in the search bar, or view all the available books in a grid. If the user has added the book they could also edit or delete it.
+In this page from top to bottom, the user can look for a particular book in the search bar, there are also two buttons one for searching and another one to clean the search bar.
+The user can also view all the available books in a responsive grid. If the user has added the book they could also edit or delete it from that page.
 
-### Contact page
+### Book page
 
-The contact page has three boxes with name, email, question and button to submit a question. Once the question is submitted an alert will open showing that the message was sent.
+Here the user will see a card with all the book information (name, genre, author, pages, ISBN, description and edit/delete buttons). A button to mark the book as favorite and an add comment button. If the user is not logged in the comment button will redirect the user to the Sign In/Log In page.
+If the comment has been added by the user who is logged in they could also delete it.
+
+### Profile page
+
+If the user is logged in they will see their name on the top of the page. As well as the list of books they have marked as favorite and the e books they have added to the database as well.
+
+### Add Book page
+
+The user can add a new book and will have to input the data through a form. The button is styled following the style of the page so the user experience is easy.
+
+### Edit Book page
+
+This page displays the same information as the add book one but would retrieve the book information from the DB so the user can see what information is in place at the moment and edit it accordingly.
+
+### Manage genre page
+
+This page is only visible if the user is logged in as Admin. The genres can be deleted or edited and have buttons following the site style.
+
+Those buttons would lead to the Add Genre that follows the same structure as the Add Book page and likewise for the edit genre page.
 
 ### Styling
 
@@ -136,62 +156,49 @@ The contact page has three boxes with name, email, question and button to submit
 
 Using [Colorhunt.co](https://colorhunt.co) I chose a palette with complementary colours that could be found in different sites:
 
-* ![#fff](https://via.placeholder.com/15/fff/000000?text=+) `#fff` - h1, background in the instructions, score, footer.
-* Gradient from the right of ![#7f53ac](https://via.placeholder.com/15/7f53ac/000000?text=+) `#7f53ac` and ![#657ced](https://via.placeholder.com/15/657ced/000000?text=+) `#657ced` - Background of the page and the modal.
-* ![#c7a1f5](https://via.placeholder.com/15/c7a1f5/000000?text=+) `#c7a1f5` - Icons and buttons hover on the icons.
-* ![#ccc](https://via.placeholder.com/15/ccc/000000?text=+) `#ccc` - Border of the button elements.
-* ![#ffffff](https://via.placeholder.com/15/ffffff/000000?text=+) `#ffffff` - Game board background color.  
+* ![#413B88](https://via.placeholder.com/15/413B88/000000?text=+) `#413B88` - Page name, navbar elements, main buttons, edit button, and add genre and comment.
+* ![#675ddb](https://via.placeholder.com/15/675ddb/000000?text=+) `#675ddb` - Hoover icons.
+* ![#f44336](https://via.placeholder.com/15/f44336/000000?text=+) `#f44336` - Cancel and delete buttons.
 
 #### Fonts
 
-For the logo and the Score I used  "Press Start 2P" and for the rest of the site "Poppins". Both imported from Google fonts. Used on the Universal selector to format the entire site.
+With the fonts the aim was to offer the user a more classic style on the page name as well as the navigation links on the navbar, so that's why I used Halant. For a cleaner and fresher style in the rest of the page Nunito Sans so oit would  offer a modern style that it's easy to read. 
 
 #### Favicon
 
-I used as Favicon one of the images used for the game. I converted it using Favicon.io.
+One of the emojis available on [Favicon.io](https://favicon.io/emoji-favicons/)
 
 ## Features
 
 ### Existing Features
 
-* Feature 1 - Landing page with two buttons that allows the user to pick between two options Play or How to Play.
-* Feature 2 - Modal that covers the game.
-  * Built with HTML, CSS and JS the modal disappears and let the user play the game.
-  * Pressing the play button set the score to 0 as well.
-
-* Feature 3 - Allows the user to click on "How to Play".
-  * Built with HTML, CSS and JS once the button is clicked a modal appears with the instructions of how to play the game.
-
-* Feature 4 - Two buttons on the top of the page, one to return to the main page and another to go to the contact page.
-  * The buttons are SVG images and link with the Home page and contact page.
-
-* Feature 4 - Allows users to send a message to the site owner.
-  * Built with HTML, CSS and JS and used EmailJS API to send a message to the site owner.
-
-* Feature 5 - Let the user replay the game from the game over screen.
-  * Replay button displayed usually in games that let the user play again.
-
-* Feature 6 - Timer.
-  * 30 seconds timer that when is over triggers the game over modal, showing the score of that game, restart and home buttons.
+* 
 
 ### Future features
 
-* Score board with a ranking of players.
+*
 
 ## Technologies Used
 
 ### Languages
 
-* [HTML](https://www.w3schools.com/html/) -  to build the structure of this site.
-* [CSS](https://www.w3schools.com/css/) - to style and fix media queries and the max width.
-* [JavaScript](https://www.javascript.com/) - to build the game and add interactivity with buttons and send messages to the site owner.
+* [Python3](https://www.python.org/) - Used to create the main application functionality
+* [HTML5](https://www.w3schools.com/html/) -  to build the structure of this site.
+* [CSS3](https://www.w3schools.com/css/) - to style the page, and fix media queries and the max width.
+* [JavaScript](https://www.javascript.com/) - to add interactions with the page.
 
 ### Libraries
 
-* [Google Fonts](https://fonts.google.com) - used for fonts on the site.
-* [Hover.css](https://ianlunn.github.io/Hover/) - used for animation effects on social icons and various buttons throughout the site.
-* [Google Fonts](https://fonts.google.com/) - Import the fonts used ont he site.
-* [Hero Icons](https://heroicons.com/) - Site icons.
+* [MaterializeCSS](https://materializecss.com/) - Used to design a mobile-first responsive website layout.
+* [Flask](https://www.fullstackpython.com/flask.html) - Python web framework
+* [Werkzeug](https://werkzeug.palletsprojects.com/en/1.0.x/) - A comprehensive WSGI web application library installed with Flask.
+* [PyMongo](https://pymongo.readthedocs.io/en/stable/) - PyMongo is a Python tool for working with MongoDB.
+* [Flask-Pymongo](https://flask-pymongo.readthedocs.io/en/latest/) - Flask-PyMongo bridges the gap between Flask and PyMongo.
+* [DNSPython](https://www.dnspython.org/) - DNS toolkit for Python
+* [click](https://click.palletsprojects.com/en/7.x/) - Python CLI utilities installed with Flask
+* [itsdangerous](https://pypi.org/project/itsdangerous/) - Python utility for hash-based message authentication installed with Flask(HMAC, SHA-512)
+* [jQuery](https://jquery.com/) - Used to use the JS components of the Materialize elements..
+* [Jinja](https://jinja.palletsprojects.com/en/2.11.x/) - Template language for Python.
 * [TailwindCSS](https://tailwindcss.com/docs/box-shadow) - For inspiration on the styles for the site.
 
 ### Programs and Tools
@@ -199,9 +206,10 @@ I used as Favicon one of the images used for the game. I converted it using Favi
 * [VSCode](https://code.visualstudio.com/) - used as IDE for the project.
 * [Git](https://git-scm.com/) - used for version control.
 * [Github](https://github.com/) - used to host repository and to generate the live website.
-* [Github projects](https://github.com/CarolinaCobo/puppy-rush/projects/1) - used to track all the tasks, bugs and issues.
+* [Google Fonts](https://fonts.google.com) - used for fonts on the site.
 * [Balsamiq](https://balsamiq.com/) - used to create the wireframes.
 * [Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools) - used to test and optimize the site.
+* [randomkeygen.com](https://randomkeygen.com/) - Random secure password & keygen generator used to create the Flask SECRET_KEY.
 
 ## Testing
 
@@ -209,38 +217,144 @@ The test performed can be found at the [testing.md](testing.md) file.
 
 ## Deployment
 
-### GitHub pages
+The website was developed using Visual Studio Code, and using Git pushed to GitHub, that hosts the repository. The site has been deployed on Heroku, the steps to do this would be:
 
-My site is hosted on [GitHub pages](https://pages.github.com/), deployed directly from the master branch.
-The steps to complete the hosting process.
+### Cloning La Biblioteca from Github
 
-1. Log into GitHub.
-2. Pick the repository.
-3. Go to settings.
-4. Scroll down to GitHub Pages section.
-5. Select as a source "master branch".
-6. The page refreshes automatically and the project is deployed.
-7. The URL for the page will be public automatically.
+#### Prerequisites
 
-### Cloning
+Ensure the following are installed locally on your machine:
 
-To run this code locally, you can clone this repository directly into the editor of your choice by following the steps below:
+* [Python 3.6 or higher](https://www.python.org/download/releases/3.0/)
+* [PIP3](https://pypi.org/project/pip/) Python package installer
+* [Git](https://git-scm.com/) Version Control
 
-1.Go the [Github](https://github.com/) repository that you wish to clone:
+#### Cloning the GitHub repository
 
-* Click Code with the down arrow so the modal will open.  
-* Click on the clip icon to copy the repository.
+* Navigate to [CarolinaCobo/la-biblioteca-ms3](https://github.com/CarolinaCobo/la-biblioteca-ms3)
+* Click the **Code** button.
+* **Copy** the url in the dropdown box.
+* Using your favorite **IDE** open up your preferred terminal.
+* **Navigate** to your desired file location.
 
-2.Open Terminal.
+Copy the following code and input it into your terminal to clone la-biblioteca
 
-3.Change the current working directory to the location when you want the cloned directory.
+```
+git clone https://github.com/CarolinaCobo/la-biblioteca-ms3.git
+```
 
-4.Paste the link previously copied or type the following into your Terminal: git clone [https://github.com/CarolinaCobo/puppy-rush.git].
+#### Creation of a Python Virtual Environment
 
-5.Press Enter to create a local clone.
+*Note: The process may be different depending upon your own OS - please follow this [Python help guide](https://python.readthedocs.io/en/latest/library/venv.html)
+to understand how to create a virtual environment*
 
-To cut ties with this GitHub repository, type git remote rm origin into the terminal.
-For more information regarding cloning of a repository click [here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+#### Install the App dependencies and external libraries
+
+* In your IDE terminal window, install the dependencies from the requirements.txt file with the following command:
+
+  ```python
+  pip3 install -r requirements.txt
+  ```
+
+#### Create the database in MongoDB
+
+*First, you will have to create an account at [MongoDB](https://account.mongodb.com/) to be able to build the database*
+
+* In your MongoDB cluster, create a new database called `la-biblioteca`
+
+* Create the following collections within the new database:
+
+  ```
+  CHECK THIS OUT
+    * [book_review](wireframes/data-schemas/book_review.json)
+    * [genre](wireframes/data-schemas/genre.json)
+    * [users](wireframes/data-schemas/users.json)
+    * [terms_conditions](wireframes/data-schemas/terms_conditions.json)
+    * [privacy](wireframes/data-schemas/privacy.json)
+
+  ```
+
+#### Create `env.py` file
+
+* It should contain at least the following information:
+
+  ```python
+  import os
+
+  os.environ.setdefault("IP", "0.0.0.0")
+  os.environ.setdefault("PORT", "5000")
+  os.environ.setdefault("SECRET_KEY", "YOUR_OWN_SECRET_KEY")
+  os.environ.setdefault("MONGO_URI", "YOUR_OWN_MONGODB_URI")
+  os.environ.setdefault("MONGO_DBNAME", "YOUR_OWN_MONGODB_DATABASE_NAME")
+  ```
+
+* Please ensure you add in your own `SECRET_KEY`, `MONGO_URI` and `MONGO_DBNAME` values.
+* **Important:** Add the `env.py` file to your `.gitignore` file before pushing your files to any public git repository.
+
+#### Run the application
+
+* To run the application enter the following command into the terminal window:
+
+  ```python
+  python3 app.py
+  ```
+
+### Deploying the app to Heroku
+
+#### Create the Heroku App
+
+*Please create at [Heroku](https://signup.heroku.com/login) in order to deploy the app*
+
+* Log in to your Heroku account dashboard and create a new app.
+* Enter the name for your app.
+  * This needs to be unique and it will flag is the name is already in use so choose can a suitable alternative name for your own App.
+* Choose a geographical region closest to where you are located.
+  * Options available on a free account are **United States** or **Europe**
+
+#### Push your repository to GitHub
+
+* Commit and push your local repository to your GitHub linked repository.
+
+* Ensure your local git repository has the following files in the root directory:
+
+  * Heroku `Procfile`
+  * `requirements.txt`
+
+* If these are not showing in your local Git repository for any reason, enter the following commands in the terminal window:
+
+  ```python
+  echo web: python app.py > Procfile
+  pip3 freeze --local > requirements.txt
+  ```
+
+* Stage, commit and push your local Git repository to GitHub
+
+#### Connect Heroku to GitHub
+
+* In the Heroku App Settings page, open the tab *Config Vars*
+* Add all the environment variables from your local `env.py` file into the Heroku Config Vars:
+
+
+| Key | Value |
+| --- | --- |
+| IP | 0.0.0.0 |
+| PORT | 5000 |
+| SECRET_KEY | YOUR_OWN_SECRET_KEY |
+| MONGO_URI | YOUR_OWN_MONGODB_URI |
+| MONGO_DBNAME | YOUR_OWN_MONGODB_DATABASE_NAME | 
+
+* In the Heroku App Deploy page:
+  * Select GitHub from the Deployment Method options.
+  * Select Connect to GitHub.
+  * Log in to your GitHub account from Heroku to link the App to GitHub.
+  * Search for and select the repository to be linked in Github.
+  * Select Connect.
+  * Select Enable Automatic Deployment from the GitHub Master / Main branch
+
+#### Launch the App
+
+* Click Open App in Heroku to launch the App in a new browser window.
+
 
 ## Credits
 
