@@ -20,9 +20,10 @@ footer {
     text-align: center;
 }
 
-/* Error from materialize, flagged when passing tests. */
-.table-of-contents a {
-    letter-spacing: normal !important;
+.flash-text {
+    font-size: x-large;
+    padding-top: 10px;
+    
 }
 
 /*  ________________ Navbar Section ________________ */

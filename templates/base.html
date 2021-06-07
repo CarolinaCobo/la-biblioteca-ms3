@@ -51,9 +51,9 @@
                 </div>
             </nav>
             <!-- SideNav in mobile devices -->
+            
             <ul class="sidenav right" id="mobile-demo">
-                <a href="{{ url_for('index') }}">La Biblioteca</a>
-
+                <li><a class="center-align" href="{{ url_for('index') }}">La Biblioteca</a></li>
                 <li><a class="hvr-underline-from-center" href="{{ url_for('index') }}">Home</a></li>
                 <li><a class="hvr-underline-from-center" href="{{ url_for('get_books') }}">Books</a></li>
 
@@ -79,7 +79,7 @@
         {% if messages %}
         {% for message in messages %}
         <div class="row flashes">
-            <h4 class="center-align">{{ message }}</h4>
+            <p class="center-align flash-text">{{ message }}</p>
         </div>
         {% endfor %}
         {% endif %}
