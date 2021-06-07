@@ -21,7 +21,6 @@
     </div>
   </form>
 </div>
-
 {% if books.count() > 0 %}
 <div class="grid-container">
   {% for book in books %}
@@ -69,8 +68,8 @@
             <a href="#!" class="modal-close waves-effect btn-flat modal-button">Cancel</a>
           </div>
         </div>
+        {% endif %}
       </div>
-      {% endif %}
     </div>
   </div>
   {% endfor %}
