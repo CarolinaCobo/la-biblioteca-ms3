@@ -12,45 +12,27 @@
   </div>
 
   <div class="row center-align">
-    <button class="btn-large button-index waves-effect ">
-      <a href="{{ url_for('index') }}">
-        Home<i class="material-icons right">home</i></a>
-    </button>
-    <button class="btn-large button-index waves-effect ">
-      <a href="{{ url_for('get_books') }}">
-        Books<i class="material-icons right">book</i></a>
-    </button>
+    <a class="btn-large button-index waves-effect" href="{{ url_for('index') }}">
+      Home<i class="material-icons right">home</i></a>
+    <a class="btn-large button-index waves-effect " href="{{ url_for('get_books') }}">
+      Books<i class="material-icons right">book</i></a>
 
     {% if session.user %}
-
-    <button class="btn-large button-index waves-effect">
-      <a href="{{ url_for('profile', username=session['user']) }}">
-        Profile<i class="material-icons right">face</i></a>
-    </button>
-    <button class="btn-large button-index waves-effect ">
-      <a href="{{ url_for('profile', username=session['user']) }}">
-        Add Book<i class="material-icons right">add</i></a>
-    </button>
+    <a class="btn-large button-index waves-effect" href="{{ url_for('profile', username=session['user']) }}">
+      Profile<i class="material-icons right">face</i></a>
+    <a class="btn-large button-index waves-effect" href="{{ url_for('profile', username=session['user']) }}">
+      Add Book<i class="material-icons right">add</i></a>
     {% if session.user|lower == "admin"|lower %}
-    <button class="btn-large button-index waves-effect ">
-      <a href="{{ url_for('get_genres') }}">
-        Manage Genre<i class="material-icons right">edit</i></a>
-    </button>
+    <a class="btn-large button-index waves-effect" href="{{ url_for('get_genres') }}">
+      Manage Genre<i class="material-icons right">edit</i></a>
     {% endif %}
-    <button class="btn-large button-index waves-effect ">
-      <a href="{{ url_for('logout') }}">
-        Log out<i class="material-icons right">close</i></a>
-    </button>
+    <a class="btn-large button-index waves-effect" href="{{ url_for('logout') }}">
+      Log out<i class="material-icons right">close</i></a>
     {% else %}
-    <button class="btn-large button-index waves-effect ">
-      <a href="{{ url_for('login') }}">
-        Login<i class="material-icons right">keyboard_arrow_right</i></a>
-    </button>
-    <button class="btn-large button-index waves-effect ">
-      <a href="{{ url_for('register') }}">
-        Sign Up<i class="material-icons right">assignment_ind</i></a>
-    </button>
-
+    <a class="btn-large button-index waves-effect" href="{{ url_for('login') }}">
+      Login<i class="material-icons right">keyboard_arrow_right</i></a>
+    <a class="btn-large button-index waves-effect" href="{{ url_for('register') }}">
+      Sign Up<i class="material-icons right">assignment_ind</i></a>
     {% endif %}
 
   </div>
