@@ -290,8 +290,6 @@ def add_comment(book_id):
 
         flash("New Comment Added")
         return redirect(url_for("book_page", book_id=book_id))
-
-    
     return render_template("add_comment.html", book_id=book_id)
 
 # Delete comment
