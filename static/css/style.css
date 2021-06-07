@@ -109,7 +109,7 @@ h3 {
 
 .btn, .button-delete, 
 .button-purple {
-    size: 2em;
+    resize: 2em;
 }
 
 .button-purple {
@@ -151,17 +151,6 @@ h3 {
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
     color: #675ddb;
-}
-
-
-.book-button {
-    height: 50px;
-    width: 50px;
-}
-
-.expand-icon {
-    margin-top: 5px;
-    font-weight: 3px;
 }
 
 
@@ -356,3 +345,6 @@ text correctly in small devices */
 }
 
 
+.table-of-contents a {
+    letter-spacing: normal;
+}
