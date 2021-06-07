@@ -89,9 +89,8 @@ def login():
 
     return render_template("login.html")
 
-# Look for the username name on the DB,
 
-
+# Look for the username name on the DB
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     try:
@@ -114,7 +113,6 @@ def profile(username):
 
 
 # Logout
-
 @app.route("/logout")
 def logout():
     # remove user from session cookie
@@ -124,7 +122,6 @@ def logout():
 
 
 # Add book
-
 @app.route("/add_book", methods=["GET", "POST"])
 def add_book():
     try:
@@ -168,6 +165,8 @@ def edit_book(book_id):
         }
         mongo.db.books.update({"_id": ObjectId(book_id)}, submit)
         flash("Book Successfully Updated")
+        return redirect(url_for("get_books"))
+
 
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     genres = mongo.db.genres.find().sort("genre_name", 1)
