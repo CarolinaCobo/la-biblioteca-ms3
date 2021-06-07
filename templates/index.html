@@ -20,7 +20,7 @@
     {% if session.user %}
     <a class="btn-large button-index waves-effect" href="{{ url_for('profile', username=session['user']) }}">
       Profile<i class="material-icons right">face</i></a>
-    <a class="btn-large button-index waves-effect" href="{{ url_for('profile', username=session['user']) }}">
+    <a class="btn-large button-index waves-effect" href="{{ url_for('add_book') }}">
       Add Book<i class="material-icons right">add</i></a>
     {% if session.user|lower == "admin"|lower %}
     <a class="btn-large button-index waves-effect" href="{{ url_for('get_genres') }}">
