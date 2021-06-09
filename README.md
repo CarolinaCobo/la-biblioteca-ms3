@@ -1,26 +1,12 @@
 # La Biblioteca
-![Logo](assets/testing/responsive-screens.png)
 
+La Biblioteca is a site for book lovers that want to add and share books with family and friends. The users can add new books or add comments to the books added by other members.
 
+![Logo](static/images/am-i-responsive.png)
 
+The live site can be shared and found in the following [link](https://la-biblioteca-ms3.herokuapp.com/index).
 
-
-
-tests:
-
-name
-incorrect password/username
-
-
-
-
-delete shadow in navbar > https://github.com/Dogfalo/materialize/issues/1115
-
-add Hoover effect https://ianlunn.github.io/Hover/ 
-
-
-
-[Live site](https://la-biblioteca-ms3.herokuapp.com/index)
+---
 
 ## Table of contents
 
@@ -31,7 +17,7 @@ add Hoover effect https://ianlunn.github.io/Hover/
 * [Wireframes](#wireframes)
 * [Structure](#structure)
 * [Home page](#home-page)
-* [Game page](#game-page)
+* [ page](#game-page)
 * [Contact page](#contact-page)
 * [Styling](#styling)
   * [Colours](#colours)
@@ -65,7 +51,7 @@ add Hoover effect https://ianlunn.github.io/Hover/
 
 ## UX
 
-### User stories
+### **User stories**
 
 **As a user I would like to**: |  **So that I could**: |
 | ------------- |:-------------:|
@@ -79,6 +65,7 @@ add Hoover effect https://ianlunn.github.io/Hover/
 | Be able to add books | I can share them with other users |
 | Be able to edit the books I added | I can communicate with them |
 | Be able to contact the site owner | I can communicate with them |
+|||
 
 **As a returner user I would like to**: |  **So that I could**: |
 | ------------- |:-------------:|
@@ -90,26 +77,45 @@ add Hoover effect https://ianlunn.github.io/Hover/
 | See books information. | See the book information quickly to decide if I like it. |
 | Comment on the different books | share my thoughts with other users. |
 | Be able to contact the site owner | I can communicate with them |
+|||
 
-### Site owner objectives
+### **Site owner objectives**
 
 **As a site owner I would like to**: |  **So that I could**: |
 | ------------- |:-------------:|
 | Delete content added by  the users. | delete anything that shouldn't be there. |
 | Add, delete or remove genres. | provide, change or delete them for the users. |
+|||
 
-### Wireframes
+---
 
-The wireframes for this project can be found below:
+### **Wireframes**
 
-* Desktop:
-  ![Desktop]()
-* iPad:
-   ![iPad]()
-* Mobile:
-  ![Mobile]()
+The wireframes for this project in different screen sizes can be found below:
 
-### Structure
+* Home page:
+  
+  <img src="static/images/wireframes/home-page.png" width=450>
+  
+* All books page:
+
+  <img src="static/images/wireframes/all-books-page.png" width=450>
+
+* Book page:
+
+  <img src="static/images/wireframes/book-page.png" width=450>
+
+* Login/Sign up page:
+  
+  <img src="static/images/wireframes/login-signup.png" width=450>
+
+* Add/Edit book:
+  
+  <img src="static/images/wireframes/add-edit-book.png" width=450>
+
+---
+
+### **Structure**
 
 * The aim during the design and development process was to make the site simple and easy for the user to navigate it, finding relevant information and using visual buttons that would help them to use the different functionalities.
 * All pages follow the same style and color palette that is simple and focus on the important information.
@@ -118,65 +124,180 @@ The wireframes for this project can be found below:
 * The Books page has a responsive grid display so the user can view the available books easily.
 * The book page has a card with all the book information and buttons to mark as favorite, edit or delete the book as well as a comments section.
 
-### Home page
+---
+
+### **Home page**
 
 In the home page the user could find the buttons for the different functionalities on the website. It's in both the navbar and the buttons in the parallax section. The display of the navbar and buttons is different depending on if the user is logged in or not.
+If the user is not logged in they will see:
 
-### Books page
+The navbar appears in every page and will display the same categories as showed above in the parallax element.
+
+<img src="static/images/elements/navbar.png" width=550 alt="edit-delete-buttons">
+
+<img src="static/images/elements/parallax-buttons.png" width=550 alt="parallax-buttons">
+
+If the user is logged in they will see the following (as the user is admin Add Genre is displayed as well)
+
+<img src="static/images/elements/parallax-buttons-logged.png" width=550 alt="parallax-buttons-logged-in">
+
+---
+
+### **All books page**
 
 In this page from top to bottom, the user can look for a particular book in the search bar, there are also two buttons one for searching and another one to clean the search bar.
+
+<img src="static/images/elements/search-bar.png" width=550 alt="search-bar">
+
 The user can also view all the available books in a responsive grid. If the user has added the book they could also edit or delete it from that page.
 
-### Book page
+<img src="static/images/elements/book-cards.png" width=550 alt="all-books">
 
-Here the user will see a card with all the book information (name, genre, author, pages, ISBN, description and edit/delete buttons). A button to mark the book as favorite and an add comment button. If the user is not logged in the comment button will redirect the user to the Sign In/Log In page.
+If the user wants to delete a book a modal will show asking for confirmation.
+
+<img src="static/images/elements/modal-delete-book.png" width=550 alt="modal-book">
+
+If the user wants to see all the the info on a book they will have to click on the expand button.
+
+<img src="static/images/elements/open-book.png" width=100 height=100 alt="favorite-button">
+
+
+---
+
+### **Book page**
+
+Here the user will see a card with all the book information (name, genre, author, pages, ISBN, description and edit/delete buttons).
+
+<img src="static/images/elements/book-card.png" width=550 alt="book-page">
+
+A button to mark the book as favorite and an add comment button.
+
+<img src="static/images/elements/favorite.png" width=100 height=100 alt="favorite-button">
+
+<img src="static/images/elements/comment.png" width=100 height=100 alt="comment-button">
+
+If the user is not logged in the comment button will redirect the user to the Sign In/Log In page.
+
 If the comment has been added by the user who is logged in they could also delete it.
+<img src="static/images/elements/user-comment.png" width=550 alt="comment-section">
 
-### Profile page
+---
 
-If the user is logged in they will see their name on the top of the page. As well as the list of books they have marked as favorite and the e books they have added to the database as well.
+### **Profile page**
 
-### Add Book page
+If the user is logged in they will see their name on the top of the page.
+
+<img src="static/images/elements/username.png" width=300 alt="username">
+
+As well as the list of books they have marked as favorite and the e books they have added to the database as well.
+
+![favorite-list](static/images/elements/user-favorites.png)
+
+![books-added-list](static/images/elements/user-books.png)
+
+---
+
+### **Add Book page**
 
 The user can add a new book and will have to input the data through a form. The button is styled following the style of the page so the user experience is easy.
 
-### Edit Book page
+<img src="static/images/elements/add-book.png" width=550 alt="add-book-page">
+
+---
+
+### **Edit Book page**
 
 This page displays the same information as the add book one but would retrieve the book information from the DB so the user can see what information is in place at the moment and edit it accordingly.
 
-### Manage genre page
+<img src="static/images/elements/edit-book.png" width=550 alt="edit-book-page">
+
+---
+
+### **Manage genre page**
 
 This page is only visible if the user is logged in as Admin. The genres can be deleted or edited and have buttons following the site style.
 
+<img src="static/images/elements/genres.png" width=550 alt="genres">
+
 Those buttons would lead to the Add Genre that follows the same structure as the Add Book page and likewise for the edit genre page.
 
-### Styling
+When the user is trying to delete a genre a modal will appear so they will confirm they want to delete it.
+
+<img src="static/images/elements/modal-delete-genre.png" width=550 alt="modal-genre">
+
+### **Buttons and other elements used**
+
+In the site the same style has been followed as we've seen above. Here in more detail the buttons in both the cards and the book page are the same for a better user experience:
+
+<img src="static/images/elements/edit-delete-buttons.png" width=200 alt="edit-delete-buttons">
+
+<img src="static/images/elements/edit-delete-card.png" width=210 alt="edit-delete-buttons">
+
+---
+
+### **Styling**
 
 #### Colours
 
 Using [Colorhunt.co](https://colorhunt.co) I chose a palette with complementary colours that could be found in different sites:
 
 * ![#413B88](https://via.placeholder.com/15/413B88/000000?text=+) `#413B88` - Page name, navbar elements, main buttons, edit button, and add genre and comment.
-* ![#675ddb](https://via.placeholder.com/15/675ddb/000000?text=+) `#675ddb` - Hoover icons.
+* ![#675ddb](https://via.placeholder.com/15/675ddb/000000?text=+) `#675ddb` - Hoover icons and flash messages.
 * ![#f44336](https://via.placeholder.com/15/f44336/000000?text=+) `#f44336` - Cancel and delete buttons.
 
 #### Fonts
 
-With the fonts the aim was to offer the user a more classic style on the page name as well as the navigation links on the navbar, so that's why I used Halant. For a cleaner and fresher style in the rest of the page Nunito Sans so oit would  offer a modern style that it's easy to read. 
+With the fonts the aim was to offer the user a more classic style on the page name as well as the navigation links on the navbar, so that's why I used Halant. For a cleaner and fresher style in the rest of the page Nunito Sans so oit would  offer a modern style that it's easy to read.
 
 #### Favicon
 
 One of the emojis available on [Favicon.io](https://favicon.io/emoji-favicons/)
 
+---
+
 ## Features
 
-### Existing Features
+### **CRUD operations**
 
-* 
+Main purpose of this site was to offer CRUD operations to the user, below listed the functionalities of every part.
 
-### Future features
+#### Create
 
-*
+* Users can sign up and create an account.
+* Registered users can add books to the database.
+* Registered users can add comments.
+* The Admin of the site can add Genres.
+
+#### Read
+
+* All site users can search and see all books in the database.
+* Registered users can see the books they have marked as favorite and also the ones they have added to the database.
+* Anyone can see the comments added by other users.
+* The genres can be accessed only by the Admin of the page.
+
+#### Update
+
+* Books can be edited if the user who added it to the DB logged in.
+* Admin can update the different genres.
+
+#### Delete
+
+* Books can be deleted by the user who added them to the DB.
+* Comments can be deleted by the user who added them.
+* The admin can delete the genres.
+
+### **Site features**
+
+### Responsive Frontend Design
+
+* Responsive mobile first design using [MaterializeCSS](https://materializecss.com/) framework.
+* Jinja2 templates framework for Python for creating the page front-end dynamic content.
+
+### Backend Design
+
+* The site has been created using Python3 and a Flask framework to render the HTML pages.
+* The site has been deployed via a Heroku app linked to a GitHub repository.
+* The dynamic content is served using a MongoDB database, which is noSQL or document oriented database.
 
 ## Technologies Used
 
@@ -200,6 +321,7 @@ One of the emojis available on [Favicon.io](https://favicon.io/emoji-favicons/)
 * [jQuery](https://jquery.com/) - Used to use the JS components of the Materialize elements..
 * [Jinja](https://jinja.palletsprojects.com/en/2.11.x/) - Template language for Python.
 * [TailwindCSS](https://tailwindcss.com/docs/box-shadow) - For inspiration on the styles for the site.
+* [Hover effect](https://ianlunn.github.io/Hover/ ) - For the hover effect on the navbar.
 
 ### Programs and Tools
 
@@ -211,9 +333,13 @@ One of the emojis available on [Favicon.io](https://favicon.io/emoji-favicons/)
 * [Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools) - used to test and optimize the site.
 * [randomkeygen.com](https://randomkeygen.com/) - Random secure password & keygen generator used to create the Flask SECRET_KEY.
 
+---
+
 ## Testing
 
 The test performed can be found at the [testing.md](testing.md) file.
+
+---
 
 ## Deployment
 
@@ -245,7 +371,7 @@ git clone https://github.com/CarolinaCobo/la-biblioteca-ms3.git
 
 #### Creation of a Python Virtual Environment
 
-*Note: The process may be different depending upon your own OS - please follow this [Python help guide](https://python.readthedocs.io/en/latest/library/venv.html)
+* The process may be different depending upon your own OS - please follow this [Python help guide](https://python.readthedocs.io/en/latest/library/venv.html)
 to understand how to create a virtual environment*
 
 #### Install the App dependencies and external libraries
@@ -256,6 +382,8 @@ to understand how to create a virtual environment*
   pip3 install -r requirements.txt
   ```
 
+---
+
 #### Create the database in MongoDB
 
 *First, you will have to create an account at [MongoDB](https://account.mongodb.com/) to be able to build the database*
@@ -264,15 +392,16 @@ to understand how to create a virtual environment*
 
 * Create the following collections within the new database:
 
-  ```
-  CHECK THIS OUT
-    * [book_review](wireframes/data-schemas/book_review.json)
-    * [genre](wireframes/data-schemas/genre.json)
-    * [users](wireframes/data-schemas/users.json)
-    * [terms_conditions](wireframes/data-schemas/terms_conditions.json)
-    * [privacy](wireframes/data-schemas/privacy.json)
+  * books
+  ![db-books](static/images/db-collections/db-books.png)
+  * users
+  ![db-books](static/images/db-collections/db-users.png)
+  * genres
+  ![db-books](static/images/db-collections/db-genres.png)
 
-  ```
+  Note: MongoDB would assign the ObjectId.
+
+---
 
 #### Create `env.py` file
 
@@ -291,6 +420,8 @@ to understand how to create a virtual environment*
 * Please ensure you add in your own `SECRET_KEY`, `MONGO_URI` and `MONGO_DBNAME` values.
 * **Important:** Add the `env.py` file to your `.gitignore` file before pushing your files to any public git repository.
 
+---
+
 #### Run the application
 
 * To run the application enter the following command into the terminal window:
@@ -298,6 +429,7 @@ to understand how to create a virtual environment*
   ```python
   python3 app.py
   ```
+---
 
 ### Deploying the app to Heroku
 
@@ -310,6 +442,8 @@ to understand how to create a virtual environment*
   * This needs to be unique and it will flag is the name is already in use so choose can a suitable alternative name for your own App.
 * Choose a geographical region closest to where you are located.
   * Options available on a free account are **United States** or **Europe**
+
+---  
 
 #### Push your repository to GitHub
 
@@ -329,11 +463,12 @@ to understand how to create a virtual environment*
 
 * Stage, commit and push your local Git repository to GitHub
 
+---
+
 #### Connect Heroku to GitHub
 
 * In the Heroku App Settings page, open the tab *Config Vars*
 * Add all the environment variables from your local `env.py` file into the Heroku Config Vars:
-
 
 | Key | Value |
 | --- | --- |
@@ -341,7 +476,8 @@ to understand how to create a virtual environment*
 | PORT | 5000 |
 | SECRET_KEY | YOUR_OWN_SECRET_KEY |
 | MONGO_URI | YOUR_OWN_MONGODB_URI |
-| MONGO_DBNAME | YOUR_OWN_MONGODB_DATABASE_NAME | 
+| MONGO_DBNAME | YOUR_OWN_MONGODB_DATABASE_NAME |
+|||
 
 * In the Heroku App Deploy page:
   * Select GitHub from the Deployment Method options.
@@ -355,12 +491,13 @@ to understand how to create a virtual environment*
 
 * Click Open App in Heroku to launch the App in a new browser window.
 
+---
 
 ## Credits
 
 ### Content
 
-This project JS part was following [Ania Kubow tutorial](https://www.youtube.com/watch?v=XD5sZWxwJUk) in how to build a Candy Crush style game. I made some changes on the game and built the CSS and HTML pulling information from different sites referenced below in the acknowledgements.
+This project JS part was following the Code Institute Task Manager Miniproject with some changes.
 
 ### Media
 
@@ -370,23 +507,23 @@ This project JS part was following [Ania Kubow tutorial](https://www.youtube.com
 * Icons are from [Hero Icons](https://heroicons.com/).
 * The icons have been made for this project by a designer.
 
+---
+
 ### Acknowledgements
 
 I received inspiration for this project from:
 
-* [Ania Kubow](https://www.youtube.com/channel/UC5DNytAJ6_FISueUfzZCVsw)
 * [MDN Documentation](https://developer.mozilla.org/en-US/)
 * [W3Schools](https://www.w3schools.com/)
 * [CSS-Tricks](https://css-tricks.com/)
 * [StackOverflow](https://stackoverflow.com/)
 * [Codú Community](https://www.youtube.com/channel/UCvI5azOD4eDumpshr00EfIw)
 * [FreeCodeCamp](https://www.freecodecamp.org/)
-* [Anna Greaves](https://github.com/AJGreaves)
-* [Bernardo Castilho](https://github.com/Bernardo-Castilho/dragdroptouch)
+* [Simon Vardy](https://github.com/simonjvardy), Code Institute student.
 
 ### I received advice and support from
 
+* [Niall Maher](https://www.linkedin.com/in/nialljoemaher/?originalSubdomain=ie)
 * [Codú Community](https://discord.com/invite/NxSkYtZ)
 * My mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/)
-* [Niall Maher](https://www.linkedin.com/in/nialljoemaher/?originalSubdomain=ie)
 * Code Institute [Slack Community](code-institute-room.slack.com)
