@@ -2,7 +2,7 @@
 
 La Biblioteca is a site for book lovers that want to add and share books with family and friends. The users can add new books or add comments to the books added by other members.
 
-![Logo](static/images/am-i-responsive.png)
+![Logo](static/images/testing/am-i-responsive.png)
 
 The live site can be shared and found in the following [link](https://la-biblioteca-ms3.herokuapp.com/index).
 
@@ -49,9 +49,9 @@ The live site can be shared and found in the following [link](https://la-bibliot
 * [Acknowledgements](#acknowledgements)
 * [I received advice and support from](#user-stories)
 
-## UX
+<h1> 1. User Experience </h1>
 
-### **User stories**
+## **User stories**
 
 **As a user I would like to**: |  **So that I could**: |
 | ------------- |:-------------:|
@@ -79,7 +79,7 @@ The live site can be shared and found in the following [link](https://la-bibliot
 | Be able to contact the site owner | I can communicate with them |
 |||
 
-### **Site owner objectives**
+## **Site owner objectives**
 
 **As a site owner I would like to**: |  **So that I could**: |
 | ------------- |:-------------:|
@@ -89,7 +89,7 @@ The live site can be shared and found in the following [link](https://la-bibliot
 
 ---
 
-### **Wireframes**
+## **Wireframes**
 
 The wireframes for this project in different screen sizes can be found below:
 
@@ -115,6 +115,57 @@ The wireframes for this project in different screen sizes can be found below:
 
 ---
 
+## **Styling**
+
+### Colours
+
+Using [Colorhunt.co](https://colorhunt.co) I chose a palette with complementary colours that could be found in different sites:
+
+* ![#413B88](https://via.placeholder.com/15/413B88/000000?text=+) `#413B88` - Page name, navbar elements, main buttons, edit button, and add genre and comment.
+* ![#675ddb](https://via.placeholder.com/15/675ddb/000000?text=+) `#675ddb` - Hoover icons and flash messages.
+* ![#f44336](https://via.placeholder.com/15/f44336/000000?text=+) `#f44336` - Cancel and delete buttons.
+
+### Fonts
+
+With the fonts the aim was to offer the user a more classic style on the page name as well as the navigation links on the navbar, so that's why I used Halant. For a cleaner and fresher style in the rest of the page Nunito Sans so oit would  offer a modern style that it's easy to read.
+
+### Favicon
+
+One of the emojis available on [Favicon.io](https://favicon.io/emoji-favicons/)
+
+<h1> 2. Features </h1>
+
+## **CRUD operations**
+
+Main purpose of this site was to offer CRUD operations to the user, below listed the functionalities of every part.
+
+### Create
+
+* Users can sign up and create an account.
+* Registered users can add books to the database.
+* Registered users can add comments.
+* The Admin of the site can add Genres.
+
+### Read
+
+* All site users can search and see all books in the database.
+* Registered users can see the books they have marked as favorite and also the ones they have added to the database.
+* Anyone can see the comments added by other users.
+* The genres can be accessed only by the Admin of the page.
+
+### Update
+
+* Books can be edited if the user who added it to the DB logged in.
+* Admin can update the different genres.
+
+### Delete
+
+* Books can be deleted by the user who added them to the DB.
+* Comments can be deleted by the user who added them.
+* The admin can delete the genres.
+
+## **Site features**
+
 ### **Structure**
 
 * The aim during the design and development process was to make the site simple and easy for the user to navigate it, finding relevant information and using visual buttons that would help them to use the different functionalities.
@@ -134,6 +185,8 @@ If the user is not logged in they will see:
 The navbar appears in every page and will display the same categories as showed above in the parallax element.
 
 <img src="static/images/elements/navbar.png" width=550 alt="edit-delete-buttons">
+
+If the user is not logged in the site will display the following buttons:
 
 <img src="static/images/elements/parallax-buttons.png" width=550 alt="parallax-buttons">
 
@@ -161,7 +214,6 @@ If the user wants to see all the the info on a book they will have to click on t
 
 <img src="static/images/elements/open-book.png" width=100 height=100 alt="favorite-button">
 
-
 ---
 
 ### **Book page**
@@ -179,6 +231,7 @@ A button to mark the book as favorite and an add comment button.
 If the user is not logged in the comment button will redirect the user to the Sign In/Log In page.
 
 If the comment has been added by the user who is logged in they could also delete it.
+
 <img src="static/images/elements/user-comment.png" width=550 alt="comment-section">
 
 ---
@@ -225,68 +278,40 @@ When the user is trying to delete a genre a modal will appear so they will confi
 
 <img src="static/images/elements/modal-delete-genre.png" width=550 alt="modal-genre">
 
+### **Add Genre page**
+
+The user can add a new book and will have to input the data through a form. The button is styled following the style of the page so the user experience is easy.
+
+<img src="static/images/elements/add-genre-card.png" width=550 alt="add-book-page">
+
 ### **Buttons and other elements used**
 
-In the site the same style has been followed as we've seen above. Here in more detail the buttons in both the cards and the book page are the same for a better user experience:
+* In the site the same style has been followed as we've seen above. Here in more detail the buttons in both the cards and the book page are the same for a better user experience:
 
-<img src="static/images/elements/edit-delete-buttons.png" width=200 alt="edit-delete-buttons">
+  <img src="static/images/elements/edit-delete-buttons.png" width=200 alt="edit-delete-buttons">
 
-<img src="static/images/elements/edit-delete-card.png" width=210 alt="edit-delete-buttons">
+  <img src="static/images/elements/edit-delete-card.png" width=210 alt="edit-delete-buttons">
 
----
+* When users perform thee following actions a flash message will be displayed:
+  * User correctly logged in.
+  * Incorrect password or username when user is trying to log in.
+  * User registered.
+  * Comment added.
+  * Comment deleted.
+  * Book added.
+  * Book edited.
+  * Genre added.
+  * Genre deleted.
+  * Genre edited.
+  * Favorite book added to users profile.
 
-### **Styling**
+    <img src="static/images/elements/flash-message.png" width=500 alt="edit-delete-buttons">
 
-#### Colours
+## Future features
 
-Using [Colorhunt.co](https://colorhunt.co) I chose a palette with complementary colours that could be found in different sites:
-
-* ![#413B88](https://via.placeholder.com/15/413B88/000000?text=+) `#413B88` - Page name, navbar elements, main buttons, edit button, and add genre and comment.
-* ![#675ddb](https://via.placeholder.com/15/675ddb/000000?text=+) `#675ddb` - Hoover icons and flash messages.
-* ![#f44336](https://via.placeholder.com/15/f44336/000000?text=+) `#f44336` - Cancel and delete buttons.
-
-#### Fonts
-
-With the fonts the aim was to offer the user a more classic style on the page name as well as the navigation links on the navbar, so that's why I used Halant. For a cleaner and fresher style in the rest of the page Nunito Sans so oit would  offer a modern style that it's easy to read.
-
-#### Favicon
-
-One of the emojis available on [Favicon.io](https://favicon.io/emoji-favicons/)
-
----
-
-## Features
-
-### **CRUD operations**
-
-Main purpose of this site was to offer CRUD operations to the user, below listed the functionalities of every part.
-
-#### Create
-
-* Users can sign up and create an account.
-* Registered users can add books to the database.
-* Registered users can add comments.
-* The Admin of the site can add Genres.
-
-#### Read
-
-* All site users can search and see all books in the database.
-* Registered users can see the books they have marked as favorite and also the ones they have added to the database.
-* Anyone can see the comments added by other users.
-* The genres can be accessed only by the Admin of the page.
-
-#### Update
-
-* Books can be edited if the user who added it to the DB logged in.
-* Admin can update the different genres.
-
-#### Delete
-
-* Books can be deleted by the user who added them to the DB.
-* Comments can be deleted by the user who added them.
-* The admin can delete the genres.
-
-### **Site features**
+* Threads of comments.
+* Share your favorite books.
+* Books recommendations.
 
 ### Responsive Frontend Design
 
@@ -299,16 +324,84 @@ Main purpose of this site was to offer CRUD operations to the user, below listed
 * The site has been deployed via a Heroku app linked to a GitHub repository.
 * The dynamic content is served using a MongoDB database, which is noSQL or document oriented database.
 
-## Technologies Used
+### Website topology
 
-### Languages
+This would be the options users will have depending on if they are logged in or not:
+
+* If the user is not logged in:
+
+  <img src="static/images/elements/topology-user-not-logged.jpg" width=500 alt="topology user not logged in">
+
+* If the user is logged in:
+
+  <img src="static/images/elements/topology-user-logged.jpg" width=500 alt="topology user logged in">
+
+* If the logged user is the Admin:
+
+  <img src="static/images/elements/topology-admin-logged.jpg" width=500 alt="topology admin logged in">
+
+### Database design
+
+#### **books collection**
+
+| Field Description | Collection Key | Data type |
+| --- | --- | --- |
+| Unique ID | _id | ObjectId |
+| Genre Name | genre_name | String |
+| Book Name | book_name | String |
+| Book description | book_description | String |
+| Book author | book_author | String |
+| Book image | book_image | String |
+| Number of pages | number_pages | String |
+| ISBN number | isbn | String |
+| Book added by | created_by | String |
+
+Objects inside the comments array:
+
+| Field Description | Collection Key | Data type |
+| --- | --- | --- |
+| Unique ID | _id | ObjectId
+| User comment| comment | String |
+| Comment created by | created_by | String |
+|||
+
+#### **genres collection**
+
+| Field Description | Collection Key | Data type |
+| --- | --- | --- |
+| Unique ID | _id | ObjectId |
+| Genre Name | genre_name | String |
+|||
+
+#### **users collection**
+
+| Field Description | Collection Key | Data type |
+| --- | --- | --- |
+| Unique ID | _id | ObjectId |
+| Users Name | name | String |
+| Username | username | String |
+| Password | password | String |
+| Books marked as favorite| favorite | Array |
+
+Objects inside the favorites array:
+
+| Field Description | Collection Key | Data type |
+| --- | --- | --- |
+| Book ID | _id | ObjectId |
+| Book Author | book_author | String |
+| Genre name | genre_name | String |
+|||
+
+<h1> 3. Technologies Used </h1>
+
+## Languages
 
 * [Python3](https://www.python.org/) - Used to create the main application functionality
 * [HTML5](https://www.w3schools.com/html/) -  to build the structure of this site.
 * [CSS3](https://www.w3schools.com/css/) - to style the page, and fix media queries and the max width.
 * [JavaScript](https://www.javascript.com/) - to add interactions with the page.
 
-### Libraries
+## Libraries
 
 * [MaterializeCSS](https://materializecss.com/) - Used to design a mobile-first responsive website layout.
 * [Flask](https://www.fullstackpython.com/flask.html) - Python web framework
@@ -323,7 +416,7 @@ Main purpose of this site was to offer CRUD operations to the user, below listed
 * [TailwindCSS](https://tailwindcss.com/docs/box-shadow) - For inspiration on the styles for the site.
 * [Hover effect](https://ianlunn.github.io/Hover/ ) - For the hover effect on the navbar.
 
-### Programs and Tools
+## Programs and Tools
 
 * [VSCode](https://code.visualstudio.com/) - used as IDE for the project.
 * [Git](https://git-scm.com/) - used for version control.
@@ -335,19 +428,19 @@ Main purpose of this site was to offer CRUD operations to the user, below listed
 
 ---
 
-## Testing
+<h1> 4. Testing </h1>
 
 The test performed can be found at the [testing.md](testing.md) file.
 
 ---
 
-## Deployment
+<h1> 5. Deployment </h1>
 
 The website was developed using Visual Studio Code, and using Git pushed to GitHub, that hosts the repository. The site has been deployed on Heroku, the steps to do this would be:
 
-### Cloning La Biblioteca from Github
+## Cloning La Biblioteca from Github
 
-#### Prerequisites
+### Prerequisites
 
 Ensure the following are installed locally on your machine:
 
@@ -355,7 +448,7 @@ Ensure the following are installed locally on your machine:
 * [PIP3](https://pypi.org/project/pip/) Python package installer
 * [Git](https://git-scm.com/) Version Control
 
-#### Cloning the GitHub repository
+### Cloning the GitHub repository
 
 * Navigate to [CarolinaCobo/la-biblioteca-ms3](https://github.com/CarolinaCobo/la-biblioteca-ms3)
 * Click the **Code** button.
@@ -369,12 +462,12 @@ Copy the following code and input it into your terminal to clone la-biblioteca
 git clone https://github.com/CarolinaCobo/la-biblioteca-ms3.git
 ```
 
-#### Creation of a Python Virtual Environment
+### Creation of a Python Virtual Environment
 
 * The process may be different depending upon your own OS - please follow this [Python help guide](https://python.readthedocs.io/en/latest/library/venv.html)
 to understand how to create a virtual environment*
 
-#### Install the App dependencies and external libraries
+### Install the App dependencies and external libraries
 
 * In your IDE terminal window, install the dependencies from the requirements.txt file with the following command:
 
@@ -384,7 +477,7 @@ to understand how to create a virtual environment*
 
 ---
 
-#### Create the database in MongoDB
+### Create the database in MongoDB
 
 *First, you will have to create an account at [MongoDB](https://account.mongodb.com/) to be able to build the database*
 
@@ -393,17 +486,20 @@ to understand how to create a virtual environment*
 * Create the following collections within the new database:
 
   * books
+
   ![db-books](static/images/db-collections/db-books.png)
   * users
+
   ![db-books](static/images/db-collections/db-users.png)
   * genres
+
   ![db-books](static/images/db-collections/db-genres.png)
 
   Note: MongoDB would assign the ObjectId.
 
 ---
 
-#### Create `env.py` file
+### Create `env.py` file
 
 * It should contain at least the following information:
 
@@ -420,20 +516,20 @@ to understand how to create a virtual environment*
 * Please ensure you add in your own `SECRET_KEY`, `MONGO_URI` and `MONGO_DBNAME` values.
 * **Important:** Add the `env.py` file to your `.gitignore` file before pushing your files to any public git repository.
 
----
 
-#### Run the application
+### Run the application
 
 * To run the application enter the following command into the terminal window:
 
   ```python
   python3 app.py
   ```
+
 ---
 
-### Deploying the app to Heroku
+## Deploying the app to Heroku
 
-#### Create the Heroku App
+### Create the Heroku App
 
 *Please create at [Heroku](https://signup.heroku.com/login) in order to deploy the app*
 
@@ -445,7 +541,7 @@ to understand how to create a virtual environment*
 
 ---  
 
-#### Push your repository to GitHub
+### Push your repository to GitHub
 
 * Commit and push your local repository to your GitHub linked repository.
 
@@ -465,7 +561,7 @@ to understand how to create a virtual environment*
 
 ---
 
-#### Connect Heroku to GitHub
+### Connect Heroku to GitHub
 
 * In the Heroku App Settings page, open the tab *Config Vars*
 * Add all the environment variables from your local `env.py` file into the Heroku Config Vars:
@@ -487,33 +583,31 @@ to understand how to create a virtual environment*
   * Select Connect.
   * Select Enable Automatic Deployment from the GitHub Master / Main branch
 
-#### Launch the App
+### Launch the App
 
 * Click Open App in Heroku to launch the App in a new browser window.
 
----
+<h1> 6. Credits </h1>
 
-## Credits
+## Content
 
-### Content
+This project JS part was following the Code Institute Task Manager Miniproject with some changes of my  own,
 
-This project JS part was following the Code Institute Task Manager Miniproject with some changes.
-
-### Media
+## Media
 
 * The color palette used in this site was obtained from [Colorhunt.co](https://colorhunt.co)
 * The favicon for this site has been resized in [Favicon.io](https://favicon.io/)
 * The Library [Tailwind](https://tailwindcss.com/) has been used for inspiration on styles.
 * Icons are from [Hero Icons](https://heroicons.com/).
-* The icons have been made for this project by a designer.
+* Book images are from [Easons](https://www.easons.com/)
+* Parallax image is from [Unplash](https://unsplash.com/)
 
----
-
-### Acknowledgements
+<h1> 7. Acknowledgements </h1>
 
 I received inspiration for this project from:
 
 * [MDN Documentation](https://developer.mozilla.org/en-US/)
+* [Easons](https://www.easons.com/) 
 * [W3Schools](https://www.w3schools.com/)
 * [CSS-Tricks](https://css-tricks.com/)
 * [StackOverflow](https://stackoverflow.com/)
