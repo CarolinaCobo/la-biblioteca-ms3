@@ -48,11 +48,11 @@
                 </tbody>
             </table>
             <!-- Book Page Buttons -->
+            {% if session.user|lower == book.created_by|lower %}
             <tr>
                 <td><i class="teal-text prefix"></i>&ensp;Edit/Delete:</td>
                 <td>
                     <div class="card-action center-align">
-                        {% if session.user|lower == book.created_by|lower %}
                         <a href="{{ url_for('edit_book', book_id=book._id) }}"
                             class="waves-effect waves-light btn btn-large s3 button-purple">
                             <i class="material-icons center-align">edit</i></a>
