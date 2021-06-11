@@ -112,7 +112,7 @@
                         <br />
                         <p>Posted By: <strong>{{ comment.created_by }}</strong></p>
 
-                        {% if session.user|lower == book.created_by|lower or session.user|lower == 'admin' %}
+                        {% if session.user|lower == comment.created_by|lower or session.user|lower == 'admin' %}
                         <a class=" waves-effect waves-light btn modal-trigger button-delete right"
                             href="#{{comment._id}}">
                             <i class="material-icons center-align">cancel</i>
@@ -136,5 +136,6 @@
         </div>
     </div>
 </div>
+
 {% endfor %}
 {% endblock %}
