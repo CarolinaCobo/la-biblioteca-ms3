@@ -92,7 +92,7 @@ def login():
 
 # Look for the username name on the DB
 @app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
+def profile():
     try:
         # grab the session user's username from db
         user = mongo.db.users.find_one(
@@ -106,9 +106,7 @@ def profile(username):
                                user_books=user_books)
 
     except Exception:
-        flash(
-            "Please log in first!",
-            "red-text text-darken-2 red lighten-4")
+        flash("Please log in or sign up first")
         return redirect(url_for("login"))
 
 
@@ -152,25 +150,32 @@ def add_book():
 # Update book details (only for the ones added by the user)
 @app.route("/edit_book/<book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
-    if request.method == "POST":
-        submit = {
-            "genre_name": request.form.get("genre_name"),
-            "book_name": request.form.get("book_name"),
-            "book_description": request.form.get("book_description"),
-            "book_author": request.form.get("book_author"),
-            "book_image": request.form.get("book_image"),
-            "number_pages": request.form.get("number_pages"),
-            "isbn": request.form.get("isbn"),
-            "created_by": session["user"]
-        }
-        mongo.db.books.update({"_id": ObjectId(book_id)}, submit)
-        flash("Book Successfully Updated")
-        return redirect(url_for("get_books"))
+    try:
+        if session["user"]:
+            if request.method == "POST":
+                submit = {
+                    "genre_name": request.form.get("genre_name"),
+                    "book_name": request.form.get("book_name"),
+                    "book_description": request.form.get("book_description"),
+                    "book_author": request.form.get("book_author"),
+                    "book_image": request.form.get("book_image"),
+                    "number_pages": request.form.get("number_pages"),
+                    "isbn": request.form.get("isbn"),
+                    "created_by": session["user"]
+                }
+                mongo.db.books.update({"_id": ObjectId(book_id)}, submit)
+                flash("Book Successfully Updated")
+                return redirect(url_for("get_books"))
 
 
-    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-    genres = mongo.db.genres.find().sort("genre_name", 1)
-    return render_template("edit_book.html", book=book, genres=genres)
+            book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+            genres = mongo.db.genres.find().sort("genre_name", 1)
+            return render_template("edit_book.html", book=book, genres=genres)
+
+    except Exception:
+        flash(
+            "Please log in first")
+        return redirect(url_for("login"))
 
 
 # Delete book (only the ones added by the user)
