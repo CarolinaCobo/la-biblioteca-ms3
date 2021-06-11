@@ -194,10 +194,16 @@ def delete_book(book_id):
 # Get genres
 @app.route("/get_genres")
 def get_genres():
-    genres = list(mongo.db.genres.find().sort("genre_name", 1))
-    print(genres)
-    return render_template("genres.html", genres=genres)
+    try:
+        if session["user"]:
+            genres = list(mongo.db.genres.find().sort("genre_name", 1))
+            print(genres)
+            return render_template("genres.html", genres=genres)
 
+    except Exception:
+        flash(
+            "Please log in first")
+        return redirect(url_for("login"))
 
 # Add genre (only admin)
 @app.route("/add_genre", methods=["GET", "POST"])
