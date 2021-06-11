@@ -312,13 +312,19 @@ def add_comment(book_id):
 
 @app.route("/delete_comment/<book_id>/<comment_id>")
 def delete_comment(book_id, comment_id):
+    try:
+        if session["user"]:
+            mongo.db.books.update_one(
+                {"_id": ObjectId(book_id)},
+                {"$pull": {"comments": {"_id": ObjectId(comment_id)}}})
 
-    mongo.db.books.update_one(
-        {"_id": ObjectId(book_id)},
-        {"$pull": {"comments": {"_id": ObjectId(comment_id)}}})
-
-    flash("Comment Successfully Removed")
-    return redirect(url_for("book_page", book_id=book_id))
+            flash("Comment Successfully Removed")
+            return redirect(url_for("book_page", book_id=book_id))
+    
+    except Exception:
+        flash(
+            "Please log in first")
+        return redirect(url_for("login"))
 
 
 if __name__ == "__main__":
