@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block styles %}
+    <link type="text/css"
+        rel="stylesheet"
+        href="{{ url_for('static', filename='error-404.html') }}" />
+{% endblock %}
+{% block content %}
+
+    <div>
+		<div class="center-align">
+			<div>
+				<h1>Oops!</h1>
+			</div>
+			<h2>404 - Page not found</h2>
+            <p>The page you are looking for is not available. It might have been removed, the name has changed or is temporarily unavailable.</p>
+			<a class="btn-large button-purple" href="{{ url_for('get_books') }}">Go back to Books</a>
+        </div>
+    </div>
+
+{% endblock %}
