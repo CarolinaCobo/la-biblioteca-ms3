@@ -181,10 +181,15 @@ def edit_book(book_id):
 # Delete book (only the ones added by the user)
 @app.route("/delete_book/<book_id>")
 def delete_book(book_id):
-    mongo.db.books.remove({"_id": ObjectId(book_id)})
-    flash("Book Successfully Deleted")
-    return redirect(url_for("get_books"))
-
+     try:
+        if session["user"]:
+            mongo.db.books.remove({"_id": ObjectId(book_id)})
+            flash("Book Successfully Deleted")
+            return redirect(url_for("get_books"))
+     except Exception:
+        flash(
+            "Please log in first")
+        return redirect(url_for("login"))
 
 # Get genres
 @app.route("/get_genres")
