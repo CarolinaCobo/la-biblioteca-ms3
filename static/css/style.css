@@ -309,11 +309,6 @@ nav .sidenav-trigger i {
 /* Make search bar take the whole width so it displays the 
 text correctly in small devices */
 @media screen and (max-width: 600px) {
-   .row .col.s12 {
-        width: auto;
-    }
-
- 
     .button-index, .button {
     margin-bottom: 6px;
     }
@@ -327,23 +322,19 @@ text correctly in small devices */
     }
 
     .row {
-      
         margin-right: auto;
         margin-bottom: 0;
-
-    }
-
-    .hero-container {
-        max-width: 90%;
     }
 
     .grid-container {
         display: grid;
         grid-template-columns: 1fr ;
-        grid-template-rows: 1fr 1fr;
-
-       
+        grid-template-rows: 1fr 1fr;       
       }
+
+    .input-field {
+        margin-left: -3rem;
+    }
 }
 
 
