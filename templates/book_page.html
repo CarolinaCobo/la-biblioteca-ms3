@@ -24,22 +24,27 @@
             <h4 class="center-align">{{ book.book_name }}</h4>
             <table>
                 <tbody>
+                    <!-- Book genre -->
                     <tr>
                         <td><i class="teal-text prefix"></i>&ensp;Genre:</td>
                         <td>{{ book.genre_name }}</td>
                     </tr>
+                    <!-- Book author -->
                     <tr>
                         <td><i class="teal-text prefix"></i>&ensp;Author:</td>
                         <td>{{ book.book_author }}</td>
                     </tr>
+                    <!-- Number of pages in the book -->
                     <tr>
                         <td><i class="teal-text prefix"></i>&ensp;Pages:</td>
                         <td>{{ book.number_pages }}</td>
                     </tr>
+                    <!-- Book ISBN -->
                     <tr>
                         <td><i class="teal-text prefix"></i>&ensp;ISBN:</td>
                         <td>{{ book.isbn }}</td>
                     </tr>
+                    <!-- Book description -->
                     <tr>
                         <td><i class="teal-text prefix"></i>&ensp;Description:</td>
                         <td class=" book-description">{{ book.book_description }}</td>
@@ -52,19 +57,17 @@
             <tr>
                 <td><i class="teal-text prefix"></i>&ensp;Edit/Delete:</td>
                 <td>
+                   
                     <div class="card-action center-align">
+                         <!-- Edit book -->
                         <a href="{{ url_for('edit_book', book_id=book._id) }}"
                             class="waves-effect waves-light btn btn-large s3 button-purple">
-                            <i class="material-icons center-align">edit</i></a>
-
-                        <a class="
-                    waves-effect waves-light
-                    btn
-                    modal-trigger
-                    button-delete
-                    btn-large
-                  " href="#{{book._id}}">
-                            <i class="material-icons center-align">cancel</i></a>
+                            <i class="material-icons center-align">edit</i>
+                        </a>
+                        <!-- Delete book -->
+                        <a class="waves-effect waves-light btn modal-trigger button-delete btn-large" href="#{{book._id}}">
+                        <i class="material-icons center-align">cancel</i>
+                        </a>
 
                         <!-- Modal for deleting book -->
                         <div id="{{book._id}}" class="modal">
@@ -82,8 +85,8 @@
         </div>
     </div>
 </div>
-<!-- Comments Section -->
 
+<!-- Comments Section -->
 <div class="row container-row comments-title">
     <h5>
         Comments
@@ -100,6 +103,7 @@
     </h5>
 </div>
 
+<!-- Comments section -->
 {% for comment in book.comments %}
 
 <div class="section comments-section">
@@ -118,7 +122,7 @@
                             <i class="material-icons center-align">cancel</i>
                         </a>
 
-
+                        <!-- Delete comment modal -->
                         <div id="{{comment._id}}" class="modal">
                             <div class="modal-content center-align">
                                 <h4>Are you sure you want to delete this comment?</h4>
