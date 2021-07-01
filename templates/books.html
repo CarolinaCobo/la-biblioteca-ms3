@@ -30,7 +30,7 @@
     <div class="card book-card offset-s1 hoverable z-depth-2">
       <div class="card-image">
         <!-- Book image pulled from DB -->
-        <img src="{{ book.book_image }}" alt="Book cover image"/>
+        <img src="{{ book.book_image }}" alt="{{ book.book_name }}"/>
         <!-- Button to open book page in a new tab -->
         <a href="{{ url_for('book_page', book_id=book._id) }}" class="
             btn-floating btn

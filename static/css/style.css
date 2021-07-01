@@ -155,6 +155,10 @@ h3 {
     color: #675ddb;
 }
 
+.card .card-image img {
+    min-height: 400px;
+    background-color: lightgrey;
+}
 
 .button-cancel > a {
     color: white;
