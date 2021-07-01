@@ -359,9 +359,11 @@ The user can add a new book and will have to input the data through a form. The 
 * Share your favorite books.
 * Books recommendations.
 
-### Database design
+---
 
-#### **books collection**
+## Database design
+
+### **books collection**
 
 | Field Description | Collection Key | Data type |
 | --- | --- | --- |
@@ -384,7 +386,7 @@ Objects inside the comments array:
 | Comment created by | created_by | String |
 |||
 
-#### **genres collection**
+### **genres collection**
 
 | Field Description | Collection Key | Data type |
 | --- | --- | --- |
@@ -392,7 +394,7 @@ Objects inside the comments array:
 | Genre Name | genre_name | String |
 |||
 
-#### **users collection**
+### **users collection**
 
 | Field Description | Collection Key | Data type |
 | --- | --- | --- |
@@ -621,8 +623,7 @@ This project JS part was following the Code Institute Task Manager Miniproject w
 * Book images are from [Easons](https://www.easons.com/)
 * Parallax image is from [Unplash](https://unsplash.com/)
 
-All the book image URLs and books descriptions, number of pagese and ISBN numbers were sourced from Easons online bookstore from their CDN image delivery URLs and used purely for educational purposes only to demonstrate the app backend CRUD functionality. Please visit Easons for great deals on books.
-
+All the book image URLs and books descriptions, number of pages and ISBN numbers were sourced from Easons online bookstore from their CDN image delivery URLs and used purely for educational purposes only to demonstrate the app backend CRUD functionality. Please visit Easons for great deals on books.
 
 <h1> 7. Acknowledgements </h1>
 
