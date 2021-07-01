@@ -15,10 +15,6 @@ The live site can be shared and found in the following [link](https://la-bibliot
 * [User Stories](#user-stories)
 * [Site owner objectives](#site-owner-objectives)
 * [Wireframes](#wireframes)
-* [Structure](#structure)
-* [Home page](#home-page)
-* [ page](#game-page)
-* [Contact page](#contact-page)
 * [Styling](#styling)
   * [Colours](#colours)
   * [Fonts](#fonts)
@@ -28,6 +24,16 @@ The live site can be shared and found in the following [link](https://la-bibliot
 
 * [CRUD Operations](#CRUD-operations)
 * [Site features](#site-features)
+  * [Structure](#Structure)
+  * [Home Page](#Home-page)
+  * [All Books Page](#all-books-page)
+  * [Book Page](#book-page)
+  * [Profile Page](#Profile-page)
+  * [Add Book Page](#add-book-page)
+  * [Edit Book Page](#edit-book-page)
+  * [Manage genre Page](#manage-genre-page)
+  * [Buttons and other elements used](#buttons-and-other-elements-used)
+
 * [Future features](#future-features)
 * [Database design](#database-design)
 
@@ -50,7 +56,6 @@ The live site can be shared and found in the following [link](https://la-bibliot
 * [Media](#media)
 
 7.[Acknowledgements](#acknowledgements)
-
 
 <h1> 1. User Experience </h1>
 
