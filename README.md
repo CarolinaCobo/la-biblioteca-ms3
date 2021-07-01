@@ -206,6 +206,10 @@ The user can also view all the available books in a responsive grid. If the user
 
 <img src="static/images/elements/book-cards.png" width=550 alt="all-books">
 
+If the cover image of the book is not available a grey background with a fixed height will be showed as well as the book title.
+
+<img src="static/images/elements/no-image.png" width=150 alt="card-missing-image">
+
 If the user wants to delete a book a modal will show asking for confirmation.
 
 <img src="static/images/elements/modal-delete-book.png" width=550 alt="modal-book">
@@ -309,6 +313,7 @@ The user can add a new book and will have to input the data through a form. The 
 
 ## Future features
 
+* Pagination
 * Threads of comments.
 * Share your favorite books.
 * Books recommendations.
@@ -601,6 +606,9 @@ This project JS part was following the Code Institute Task Manager Miniproject w
 * Icons are from [Hero Icons](https://heroicons.com/).
 * Book images are from [Easons](https://www.easons.com/)
 * Parallax image is from [Unplash](https://unsplash.com/)
+
+All the book image URLs and books descriptions, number of pagese and ISBN numbers were sourced from Easons online bookstore from their CDN image delivery URLs and used purely for educational purposes only to demonstrate the app backend CRUD functionality. Please visit Easons for great deals on books.
+
 
 <h1> 7. Acknowledgements </h1>
 
