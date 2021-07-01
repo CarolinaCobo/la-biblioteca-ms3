@@ -23,6 +23,7 @@ The live site can be shared and found in the following [link](https://la-bibliot
 2.[Features](#features)
 
 * [CRUD Operations](#CRUD-operations)
+* [Database design](#database-design)
 * [Site features](#site-features)
   * [Responsive Frontend design](#responsive-frontend-design)
   * [Backend design](#backend-design)
@@ -36,11 +37,7 @@ The live site can be shared and found in the following [link](https://la-bibliot
   * [Edit Book Page](#edit-book-page)
   * [Manage genre Page](#manage-genre-page)
   * [Buttons and other elements used](#buttons-and-other-elements-used)
- 
-
-
-* [Future features](#future-features)
-* [Database design](#database-design)
+ * [Future features](#future-features)
 
 3.[Technologies used](#technologies-used)
 
@@ -176,6 +173,59 @@ Main purpose of this site was to offer CRUD operations to the user, below listed
 * Books can be deleted by the user who added them to the DB.
 * Comments can be deleted by the user who added them.
 * The admin can delete the genres.
+
+## Database design
+
+### **books collection**
+
+| Field Description | Collection Key | Data type |
+| --- | --- | --- |
+| Unique ID | _id | ObjectId |
+| Genre Name | genre_name | String |
+| Book Name | book_name | String |
+| Book description | book_description | String |
+| Book author | book_author | String |
+| Book image | book_image | String |
+| Number of pages | number_pages | String |
+| ISBN number | isbn | String |
+| Book added by | created_by | String |
+
+Objects inside the comments array:
+
+| Field Description | Collection Key | Data type |
+| --- | --- | --- |
+| Unique ID | _id | ObjectId
+| User comment| comment | String |
+| Comment created by | created_by | String |
+|||
+
+### **genres collection**
+
+| Field Description | Collection Key | Data type |
+| --- | --- | --- |
+| Unique ID | _id | ObjectId |
+| Genre Name | genre_name | String |
+|||
+
+#### **users collection**
+
+| Field Description | Collection Key | Data type |
+| --- | --- | --- |
+| Unique ID | _id | ObjectId |
+| Users Name | name | String |
+| Username | username | String |
+| Password | password | String |
+| Books marked as favorite| favorite | Array |
+
+Objects inside the favorites array:
+
+| Field Description | Collection Key | Data type |
+| --- | --- | --- |
+| Book ID | _id | ObjectId |
+| Book Author | book_author | String |
+| Genre name | genre_name | String |
+|||
+
 
 ## **Site features**
 
@@ -358,60 +408,6 @@ The user can add a new book and will have to input the data through a form. The 
 * Threads of comments.
 * Share your favorite books.
 * Books recommendations.
-
----
-
-## Database design
-
-### **books collection**
-
-| Field Description | Collection Key | Data type |
-| --- | --- | --- |
-| Unique ID | _id | ObjectId |
-| Genre Name | genre_name | String |
-| Book Name | book_name | String |
-| Book description | book_description | String |
-| Book author | book_author | String |
-| Book image | book_image | String |
-| Number of pages | number_pages | String |
-| ISBN number | isbn | String |
-| Book added by | created_by | String |
-
-Objects inside the comments array:
-
-| Field Description | Collection Key | Data type |
-| --- | --- | --- |
-| Unique ID | _id | ObjectId
-| User comment| comment | String |
-| Comment created by | created_by | String |
-|||
-
-### **genres collection**
-
-| Field Description | Collection Key | Data type |
-| --- | --- | --- |
-| Unique ID | _id | ObjectId |
-| Genre Name | genre_name | String |
-|||
-
-### **users collection**
-
-| Field Description | Collection Key | Data type |
-| --- | --- | --- |
-| Unique ID | _id | ObjectId |
-| Users Name | name | String |
-| Username | username | String |
-| Password | password | String |
-| Books marked as favorite| favorite | Array |
-
-Objects inside the favorites array:
-
-| Field Description | Collection Key | Data type |
-| --- | --- | --- |
-| Book ID | _id | ObjectId |
-| Book Author | book_author | String |
-| Genre name | genre_name | String |
-|||
 
 <h1> 3. Technologies Used </h1>
 
