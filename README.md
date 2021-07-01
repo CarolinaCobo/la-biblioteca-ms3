@@ -24,6 +24,9 @@ The live site can be shared and found in the following [link](https://la-bibliot
 
 * [CRUD Operations](#CRUD-operations)
 * [Site features](#site-features)
+  * [Responsive Frontend design](#responsive-frontend-design)
+  * [Backend design](#backend-design)
+  * [Website topology](#website-topology)
   * [Structure](#Structure)
   * [Home Page](#Home-page)
   * [All Books Page](#all-books-page)
@@ -33,6 +36,8 @@ The live site can be shared and found in the following [link](https://la-bibliot
   * [Edit Book Page](#edit-book-page)
   * [Manage genre Page](#manage-genre-page)
   * [Buttons and other elements used](#buttons-and-other-elements-used)
+ 
+
 
 * [Future features](#future-features)
 * [Database design](#database-design)
@@ -173,6 +178,33 @@ Main purpose of this site was to offer CRUD operations to the user, below listed
 * The admin can delete the genres.
 
 ## **Site features**
+
+## Responsive Frontend Design
+
+* Responsive mobile first design using [MaterializeCSS](https://materializecss.com/) framework.
+* Jinja2 templates framework for Python for creating the page front-end dynamic content.
+
+## Backend Design
+
+* The site has been created using Python3 and a Flask framework to render the HTML pages.
+* The site has been deployed via a Heroku app linked to a GitHub repository.
+* The dynamic content is served using a MongoDB database, which is noSQL or document oriented database.
+
+## Website topology
+
+This would be the options users will have depending on if they are logged in or not:
+
+* If the user is not logged in:
+
+  <img src="static/images/elements/topology-user-not-logged.jpg" width=500 alt="topology user not logged in">
+
+* If the user is logged in:
+
+  <img src="static/images/elements/topology-user-logged.jpg" width=500 alt="topology user logged in">
+
+* If the logged user is the Admin:
+
+  <img src="static/images/elements/topology-admin-logged.jpg" width=500 alt="topology admin logged in">
 
 ### **Structure**
 
@@ -326,33 +358,6 @@ The user can add a new book and will have to input the data through a form. The 
 * Threads of comments.
 * Share your favorite books.
 * Books recommendations.
-
-### Responsive Frontend Design
-
-* Responsive mobile first design using [MaterializeCSS](https://materializecss.com/) framework.
-* Jinja2 templates framework for Python for creating the page front-end dynamic content.
-
-### Backend Design
-
-* The site has been created using Python3 and a Flask framework to render the HTML pages.
-* The site has been deployed via a Heroku app linked to a GitHub repository.
-* The dynamic content is served using a MongoDB database, which is noSQL or document oriented database.
-
-### Website topology
-
-This would be the options users will have depending on if they are logged in or not:
-
-* If the user is not logged in:
-
-  <img src="static/images/elements/topology-user-not-logged.jpg" width=500 alt="topology user not logged in">
-
-* If the user is logged in:
-
-  <img src="static/images/elements/topology-user-logged.jpg" width=500 alt="topology user logged in">
-
-* If the logged user is the Admin:
-
-  <img src="static/images/elements/topology-admin-logged.jpg" width=500 alt="topology admin logged in">
 
 ### Database design
 
