@@ -26,8 +26,10 @@ The live site can be shared and found in the following [link](https://la-bibliot
 
 2.[Features](#features)
 
-* [Existing features](#existing-features)
+* [CRUD Operations](#CRUD-operations)
+* [Site features](#site-features)
 * [Future features](#future-features)
+* [Database design](#database-design)
 
 3.[Technologies used](#technologies-used)
 
@@ -39,15 +41,16 @@ The live site can be shared and found in the following [link](https://la-bibliot
 
 5.[Deployment](#deployment)
 
-* [GitHub pages](#github-pages)
 * [Cloning](#cloning)
+* [Deploying app to Heroku](#Deploying-app-to-Heroku)
 
 6.[Credits](#credits)
 
 * [Content](#content)
 * [Media](#media)
-* [Acknowledgements](#acknowledgements)
-* [I received advice and support from](#user-stories)
+
+7.[Acknowledgements](#acknowledgements)
+
 
 <h1> 1. User Experience </h1>
 
@@ -313,6 +316,7 @@ The user can add a new book and will have to input the data through a form. The 
 
 ## Future features
 
+* Delete books marked as favorite.
 * Pagination
 * Threads of comments.
 * Share your favorite books.

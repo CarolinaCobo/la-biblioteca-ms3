@@ -4,19 +4,15 @@
 
 ## Table of Contents
 
-* [La BibliotecaProject Testing Details](#t)
-
-  * [Table of Contents](#table-of-contents)
-  * [Automated Testing](#automated-testing)
-    * [Validation Services](#validation-services)
-
-  * [Manual Testing](#manual-testing)
-    * [Unit Testing](#unit-testing)
-    * [Testing undertaken on desktop](#testing-undertaken-on-desktop)
-    * [Testing undertaken on tablet and phone devices](#testing-undertaken-on-tablet-and-phone-devices)
-  * [Bugs discovered](#bugs-discovered)
-    * [Known Bugs](#known-bugs)
-    * [Unsolved Issues](#unsolved-issues)
+* [Code validation](#code-validation)
+  * [Validation Services](#validation-services)
+* [Manual Testing](#manual-testing)
+  * [Unit Testing](#unit-testing)
+  * [Devices and browsers](#deviices-and-browsers)
+* [User stories and site owner objectives testing](#user-stories-and-site-owner-objectives-testing)
+* [Bugs](#bugs-discovered)
+  * [Known Bugs](#known-bugs)
+  * [Unsolved Issues](#unsolved-issues)
 
 <h1> 1. Code Validation </h1>
 
@@ -93,29 +89,43 @@ All the site has been tested and all the steps have been documented, it can be f
 
 **As a user I would like to**: |  **So that I could**: |
 | ------------- |:-------------:|
-| To immediately  understand the purpose  of the page. | search for books and write comments |
-| To see all the content without having to register.| enjoy a faster experience |
-| To be able to search for keywords. | easily find what I'm looking for. |
-| Easily navigate the site | quickly find what I need |
-| To be able to register easily without having to input too much information.| register quickly. |
-| See books information. | See the book information quickly to decide if I like it. |
-| Comment on the different books | share my thoughts with other users. |
-| Be able to add books | I can share them with other users |
-| Be able to edit the books I added | I can communicate with them |
-| Be able to contact the site owner | I can communicate with them |
+| 1. To immediately  understand the purpose  of the page. | search for books and write comments |
+| 2. To see all the content without having to register.| enjoy a faster experience |
+| 3. To be able to search for keywords. | easily find what I'm looking for. |
+| 4. Easily navigate the site | quickly find what I need |
+| 5. To be able to register easily without having to input too much information.| register quickly. |
+| 6. See books information. | See the book information quickly to decide if I like it. |
+| 7. Comment on the different books | share my thoughts with other users. |
+| 8. Be able to add books | I can share them with other users |
+| 9. Be able to edit the books I added | I can communicate with them |
+| 10. Be able to contact the site owner | I can communicate with them |
 |||
 
-**As a returner user I would like to**: |  **So that I could**: |
-| ------------- |:-------------:|
-| Log in and out easily. | Log in everywhere easily. |
-| Edit comments. | modify my comment. |
-| Check the books I added and marked as favorite. | easily check it out any time. |
-| Edit the book I  added | change the information in case I made a mistake |
-| Delete the book I added.| delete it. |
-| See books information. | See the book information quickly to decide if I like it. |
-| Comment on the different books | share my thoughts with other users. |
-| Be able to contact the site owner | I can communicate with them |
-|||
+### Testing user stories
+
+1. The user can read and access to the different parts of the site from both the home page and the navbar.
+
+2. Users are not requested to log in to access the content, they'll have to do it if they want to interact with the website.
+
+3. The users can use the search bar available in the books page, they don't need to be logged in to use this functionality.
+
+4. The website has a simple design that is visually appealing using the same colour pallette.
+
+5. The user only has to fill a simple form (name, username and password) to be registered in the page.
+
+6. If a user is interested in a book they will only have to click on the + icon and the book information will open in a new page so they can easily go back and open another one once they finished reading, marking it as favorite or commenting on it.
+
+7. The users can comment their thoughts on the books once they are registered and logged in.
+
+8. The user can access to the add book functionality, the user can access to it from both the home page and navbar.
+
+9. If the user has added a book they will be able to both edit it and delete it from the database. They'll need to be logged in to do so.
+
+10. At the bottom of all pages the user can access their email address to contact the site owner.
+
+The user might be using the page as a first time user or as a returner user.
+
+Returner registered users would be more benefited of the site CRUD functionality as they could Create books or comments, read the content, update any information they have added to the site and delete it if they don't want it to be available for any reason.
 
 ## **Site owner objectives**
 
@@ -125,12 +135,22 @@ All the site has been tested and all the steps have been documented, it can be f
 | Add, delete or remove genres. | provide, change or delete them for the users. |
 |||
 
+The site owner will have access to the same functionalities listed above, but also will be the only one able to use the CRUD operations with thee Book Genres.
+
 <h1> 4. Bugs </h1>
 
-The issue log is managed on the [GitHub Project Issues section](https://github.com/simonjvardy/the-reading-room/issues) using the standard GitHub [bug\_report.md template](https://github.com/simonjvardy/the-reading-room/blob/master/.github/ISSUE_TEMPLATE/bug_report.md)
-and the [features_request.md template](https://github.com/simonjvardy/the-reading-room/blob/master/.github/ISSUE_TEMPLATE/feature_request.md)
+The bugs project can be found din the following [link](https://github.com/CarolinaCobo/la-biblioteca-ms3/projects/1)
 
 ## Bugs found and solved
 
-## Unsolved bugs
+  The issue log is managed on the [GitHub Project Issues section](https://github.com/simonjvardy/the-reading-room/issues) and linked to the solved commit.
 
+  Probably one of the most challenging ones was to figure out why using a modal to confirm the book to be deleted to be a random one and not the selected. The code can be seen on the [Issue #3](https://github.com/CarolinaCobo/la-biblioteca-ms3/issues/3) To solve this bug I used the developer tools to compare what id was being injected into the modal.
+
+  I found quite a few errors in the format of the HTML when used the different validation systems that were fixed on the go.
+
+  Another mistake was not tracking the bugs on the project on Github, so I made it after, this would be avoided in future projects.
+
+  ## Unsolved bugs
+
+  In the bugs Project page the Format required in the input is stated as a not resolved bug. After research it seems Materialize doesn't allow to use patterns as used in previous projects. This will be solved in future work on the site.
